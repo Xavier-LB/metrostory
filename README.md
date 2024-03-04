@@ -1,40 +1,25 @@
-# create-svelte
+# 🚇 MetroStory: Santiago Subway Adventure
 
 ![logo](./static/logo.svg)
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/main/packages/create-svelte).
+Welcome to MetroStory, your ticket to an interactive journey through the fascinating Santiago subway system! 🌟
 
-## Creating a project
+Explore the rich history and unique stories behind each station, from the heart of the city to the outskirts. MetroStory transforms your commute into a captivating adventure, offering insights, fun facts, and historic tales about Santiago's iconic subway stations.
 
-If you're seeing this, you've probably already done this step. Congrats!
+## Features
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+- **Click and Discover:** Dive into the story of each station with a simple click.
+- **Station Inauguration Dates:** Learn when each station opened its doors to the public.
+- **Daily Passenger Insights:** Find out how many people traverse each station on a daily basis.
+- **Quirky Fun Facts:** Unearth entertaining trivia that adds a dash of fun to your subway experience.
+- **Historical Personages:** Discover the stories behind stations named after historic figures or significant dates.
 
-# create a new project in my-app
-npm create svelte@latest my-app
-```
+## How to Embark on the MetroStory Adventure
 
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+1. **Installation:**
+   ```bash
+    git clone git@github.com:Xavier-LB/metrostory.git
+    cd metrostory
+    yarn
+    yarn dev
+   ```
