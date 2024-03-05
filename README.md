@@ -14,12 +14,23 @@ Explore the rich history and unique stories behind each station, from the heart 
 - **Quirky Fun Facts:** Unearth entertaining trivia that adds a dash of fun to your subway experience.
 - **Historical Personages:** Discover the stories behind stations named after historic figures or significant dates.
 
-## How to Embark on the MetroStory Adventure
+## Inspiration
 
-1. **Installation:**
-   ```bash
-    git clone git@github.com:Xavier-LB/metrostory.git
-    cd metrostory
-    yarn
-    yarn dev
-   ```
+Awesome project that I would love to replicate someday in Santiago de Chile: [Visualizing MBTA Data](https://mbtaviz.github.io/)
+
+SVG structure inspired by [IT Subway Map](https://itsubwaymap.com/interactive-map/)
+
+## Documentation
+
+### Stack
+
+- [Svelte](https://svelte.dev/) - Front-end library
+- [TailwindCSS](https://tailwindcss.com/) - Style
+
+### Quick Start
+
+You need to have [NodeJS](https://nodejs.org/en/download/) (V18) and a package manager such as [Yarn](https://yarnpkg.com/lang/en/docs/install/) installed.
+Then run the following commands to get started:
+
+1. Run `yarn` to install or update all necessary dependencies.
+2. Run `yarn dev` to run it locally. This will keep running to immediately build changed files when they are updated.
