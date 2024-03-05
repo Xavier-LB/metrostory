@@ -36,3 +36,7 @@ Then run the following commands to get started:
 2. Run `yarn dev` to run it locally. This will keep running to immediately build changed files when they are updated.
 
 Make sure to check out [MetroStory](https://metrostory.lebaux.co/) to experience the Santiago Subway Adventure!
+
+### Deployment
+
+This project is deployed on [Vercel](https://vercel.com/). Visit [MetroStory](https://metrostory.lebaux.co/) to experience the Santiago Subway Adventure!
