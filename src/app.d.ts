@@ -5,7 +5,13 @@ declare global {
 		// interface Error {}
 		// interface Locals {}
 		// interface PageData {}
-		// interface PageState {}
+		interface PageState {
+			selected: {
+				station: {
+					id: string;
+				};
+			};
+		}
 		// interface Platform {}
 	}
 }

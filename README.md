@@ -1,4 +1,4 @@
-# 🚇 MetroStory: Santiago Subway Adventure
+# 🚇 [MetroStory: Santiago Subway Adventure](https://metrostory.netlify.app/)
 
 ![logo](./static/logo.svg)
 
@@ -34,3 +34,5 @@ Then run the following commands to get started:
 
 1. Run `yarn` to install or update all necessary dependencies.
 2. Run `yarn dev` to run it locally. This will keep running to immediately build changed files when they are updated.
+
+Make sure to check out [MetroStory](https://metrostory.netlify.app/) to experience the Santiago Subway Adventure!

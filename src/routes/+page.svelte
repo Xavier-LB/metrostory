@@ -1,4 +1,23 @@
 <script lang="ts">
+	import { goto, preloadData, pushState } from '$app/navigation';
+	import { page } from '$app/stores';
+	import Modal from '$lib/Modal.svelte';
+
+	let selectedStation: string;
+
+	const toggleModal = async (clickedGroupId: string) => {
+		const href = `station/${clickedGroupId}`;
+
+		console.log('href', href);
+		// get result of `load` function
+		const result = await preloadData(href);
+		if (result.type === 'loaded' && result.status === 200) {
+			pushState(href, { selected: { station: result.data.id } });
+		} else {
+			goto(href);
+		}
+	};
+
 	function handleClick(event: MouseEvent) {
 		if (event.currentTarget) {
 			// Cast currentTarget to HTMLElement to access the id property
@@ -6,6 +25,8 @@
 
 			// Handle the click event for the SVG group
 			console.log(`SVG group with id ${clickedGroupId} clicked!`);
+			selectedStation = clickedGroupId;
+			toggleModal(clickedGroupId);
 			// Add your custom logic here
 		}
 	}
@@ -17,29 +38,44 @@
 		}
 	}
 	function handleMouseOver(event: MouseEvent) {
-		const clickArea = event.currentTarget.querySelector('#click-area') as HTMLElement;
+		const clickArea = (event.currentTarget as HTMLElement)?.querySelector(
+			'#click-area'
+		) as HTMLElement;
 		clickArea.style.transition = 'fill-opacity 0.3s ease'; // Add transition style
 		clickArea.setAttribute('fill-opacity', '0.5');
 	}
 
 	function handleMouseOut(event: MouseEvent) {
-		const clickArea = event.currentTarget.querySelector('#click-area') as HTMLElement;
+		const clickArea = (event.currentTarget as HTMLElement)?.querySelector(
+			'#click-area'
+		) as HTMLElement;
 		clickArea.style.transition = 'fill-opacity 0.3s ease'; // Add transition style
 		clickArea.setAttribute('fill-opacity', '0.0');
 	}
 
 	function handleFocus(event: FocusEvent) {
-		const clickArea = event.currentTarget.querySelector('#click-area') as HTMLElement;
+		const clickArea = (event.currentTarget as HTMLElement)?.querySelector(
+			'#click-area'
+		) as HTMLElement;
 		clickArea.style.transition = 'fill-opacity 0.3s ease'; // Add transition style
 		clickArea.setAttribute('fill-opacity', '0.5');
 	}
 
 	function handleBlur(event: FocusEvent) {
-		const clickArea = event.currentTarget.querySelector('#click-area') as HTMLElement;
+		const clickArea = (event.currentTarget as HTMLElement)?.querySelector(
+			'#click-area'
+		) as HTMLElement;
 		clickArea.style.transition = 'fill-opacity 0.3s ease'; // Add transition style
 		clickArea.setAttribute('fill-opacity', '0.0');
 	}
 </script>
+
+{#if $page.state.selected}
+	<Modal on:close={() => history.back()}>
+		hello
+		<!-- <CountryInfo data={$page.state.country} /> -->
+	</Modal>
+{/if}
 
 <div class="flex px-5 pb-5">
 	<svg
@@ -98,7 +134,7 @@
 			<g id="stations-line-1">
 				<g id="LD">
 					<g
-						id="40-LD"
+						id="LD"
 						on:click={handleClick}
 						on:keydown={handleKeyPress}
 						on:mouseover={handleMouseOver}
