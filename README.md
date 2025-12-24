@@ -1,42 +1,58 @@
-# 🚇 [MetroStory: Santiago Subway Adventure](https://metrostory.lebaux.co/)
+# MetroStory
 
-![logo](./static/logo.svg)
+MetroStory es una aplicación web interactiva que cuenta la historia del Metro de Santiago de Chile, estación por estación. Los usuarios pueden explorar un mapa interactivo del metro para descubrir el origen de los nombres de las estaciones, información histórica, datos técnicos y curiosidades.
 
-Welcome to MetroStory, your ticket to an interactive journey through the fascinating Santiago subway system! 🌟
+## Tecnologías Utilizadas
 
-Explore the rich history and unique stories behind each station, from the heart of the city to the outskirts. MetroStory transforms your commute into a captivating adventure, offering insights, fun facts, and historic tales about Santiago's iconic subway stations.
+- SvelteKit: Framework para el frontend
+- TailwindCSS: Para los estilos
+- Mapbox: Para la visualización del mapa interactivo
+- TypeScript: Para tipado estático
 
-## Features
+## Configuración
 
-- **Click and Discover:** Dive into the story of each station with a simple click.
-- **Station Inauguration Dates:** Learn when each station opened its doors to the public.
-- **Daily Passenger Insights:** Find out how many people traverse each station on a daily basis.
-- **Quirky Fun Facts:** Unearth entertaining trivia that adds a dash of fun to your subway experience.
-- **Historical Personages:** Discover the stories behind stations named after historic figures or significant dates.
+1. Clonar el repositorio
+2. Instalar dependencias:
+   ```bash
+   npm install
+   ```
+3. Copiar el archivo `.env.example` a `.env` y configurar las variables de entorno:
+   ```
+   VITE_MAPBOX_TOKEN=your_mapbox_token_here
+   VITE_MAPBOX_STYLE=mapbox://styles/mapbox/dark-v10
+   VITE_DEFAULT_CENTER=-70.620,-33.420
+   VITE_DEFAULT_ZOOM=12
+   ```
+4. Para obtener un token de Mapbox, registrarse en [Mapbox](https://www.mapbox.com/) y crear un token.
 
-## Inspiration
+## Desarrollo
 
-Awesome project that I would love to replicate someday in Santiago de Chile: [Visualizing MBTA Data](https://mbtaviz.github.io/)
+Para iniciar el servidor de desarrollo:
 
-SVG structure inspired by [IT Subway Map](https://itsubwaymap.com/interactive-map/)
+```bash
+npm run dev
+```
 
-## Documentation
+## Estructura del Proyecto
 
-### Stack
+- `src/lib/components/Map/`: Componentes del mapa interactivo
+- `src/lib/types/`: Definiciones de tipos TypeScript
+- `src/lib/data/`: Datos de las líneas y estaciones del metro
+- `src/routes/`: Páginas de la aplicación
 
-- [Svelte](https://svelte.dev/) - Front-end library
-- [TailwindCSS](https://tailwindcss.com/) - Style
+## Inspiración
 
-### Quick Start
+Este proyecto está inspirado en [The Weekendest](https://github.com/blahblahblah-/theweekendest), una aplicación que muestra en tiempo real el servicio del metro de Nueva York.
 
-You need to have [NodeJS](https://nodejs.org/en/download/) (V18) and a package manager such as [Yarn](https://yarnpkg.com/lang/en/docs/install/) installed.
-Then run the following commands to get started:
+## Contribuir
 
-1. Run `yarn` to install or update all necessary dependencies.
-2. Run `yarn dev` to run it locally. This will keep running to immediately build changed files when they are updated.
+Las contribuciones son bienvenidas. Puedes ayudar a:
 
-Make sure to check out [MetroStory](https://metrostory.lebaux.co/) to experience the Santiago Subway Adventure!
+1. Mejorar los datos históricos de las estaciones
+2. Añadir fotos históricas
+3. Mejorar el diseño y la experiencia de usuario
+4. Implementar nuevas funcionalidades
 
-### Deployment
+## Licencia
 
-This project is deployed on [Vercel](https://vercel.com/). Visit [MetroStory](https://metrostory.lebaux.co/) to experience the Santiago Subway Adventure!
+MIT

@@ -1,0 +1,5 @@
+{
+	"workbench.colorTheme": "Subway: Paris (TextMate)",
+	"i18n-ally.localesPaths": ["src/lib/Language"],
+	"i18n-ally.keystyle": "nested"
+}

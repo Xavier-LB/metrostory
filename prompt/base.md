@@ -1,0 +1,5 @@
+Estoy trabajando en un proyecto llamado MetroStory, una aplicación web interactiva que busca contar la historia del Metro de Santiago de Chile, estación por estación. La idea nació cuando me preguntaba por qué las estaciones del metro se llamaban así (por ejemplo, Baquedano, Cal y Canto, Tobalaba, etc.). Quiero que los usuarios puedan explorar un mapa del metro estilizado, donde puedan hacer clic en cualquier estación para descubrir el origen de su nombre, información histórica, datos técnicos como fecha de inauguración o arquitecto, curiosidades del lugar y estadísticas como número de pasajeros diarios.
+
+Quiero lograr esto con un mapa interactivo del metro, donde cada estación sea un nodo clickeable que muestre información contextual en un modal o en una vista aparte. El diseño debe ser moderno, responsive y animado, con interactividad suave al hacer hover, click o navegar desde móvil.
+
+El stack que estoy usando incluye Svelte para el frontend, TailwindCSS para el estilo, y eventualmente agregaré un backend para servir datos históricos y técnicos sobre cada estación. También quiero incluir animaciones y permitir zoom y navegación táctil.
