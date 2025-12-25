@@ -18,35 +18,47 @@
 
 	onMount(() => {
 		const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-		// En móviles, usar un offset base más alto por la barra del navegador
-		const baseOffset = isMobile ? 70 : 16;
 
 		function updateBottomOffset() {
+			if (!isMobile) {
+				bottomOffset = 16;
+				return;
+			}
+
+			// Calcular la diferencia entre la pantalla completa y el viewport visible
+			// Esto nos da el espacio ocupado por barras del navegador/sistema
+			const screenHeight = window.screen.height;
+			const innerHeight = window.innerHeight;
+			const browserChrome = screenHeight - innerHeight;
+
+			// En móviles, la barra de navegación típicamente ocupa 50-120px
+			// Usamos un mínimo de 24px y un máximo razonable
+			const estimatedBarHeight = Math.min(Math.max(browserChrome * 0.3, 24), 120);
+
+			// Si Visual Viewport está disponible, usamos el offset real
 			if (window.visualViewport) {
-				// Diferencia entre la altura de la ventana y el viewport visual
-				const offset = window.innerHeight - window.visualViewport.height;
-				// Usar el mayor entre el offset detectado y el base para móviles
-				bottomOffset = Math.max(baseOffset, offset + 16);
+				const vpOffset = window.innerHeight - window.visualViewport.height;
+				bottomOffset = Math.max(estimatedBarHeight, vpOffset + 16);
 			} else {
-				bottomOffset = baseOffset;
+				bottomOffset = estimatedBarHeight;
 			}
 		}
 
 		updateBottomOffset();
 
-		// Escuchar cambios en el viewport visual (cuando aparece/desaparece el teclado o la barra)
+		// Escuchar cambios
 		if (window.visualViewport) {
 			window.visualViewport.addEventListener('resize', updateBottomOffset);
-			window.visualViewport.addEventListener('scroll', updateBottomOffset);
 		}
 		window.addEventListener('resize', updateBottomOffset);
+		window.addEventListener('orientationchange', updateBottomOffset);
 
 		return () => {
 			if (window.visualViewport) {
 				window.visualViewport.removeEventListener('resize', updateBottomOffset);
-				window.visualViewport.removeEventListener('scroll', updateBottomOffset);
 			}
 			window.removeEventListener('resize', updateBottomOffset);
+			window.removeEventListener('orientationchange', updateBottomOffset);
 		};
 	});
 
