@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
 	import { stations, lines, linesById, futureLines, ghostStations, rollingStock } from '$lib';
 	import type { Station, MetroLine } from '$lib/types';
 	import MetroMap from '$lib/components/Map/MetroMap.svelte';
@@ -11,6 +12,43 @@
 	let isLinePanelOpen = $state(false);
 	let showInfoPanel = $state(false);
 	let activeInfoTab = $state<'future' | 'ghost' | 'trains'>('future');
+
+	// Detectar barra de navegación del navegador móvil
+	let bottomOffset = $state(16); // Default 1rem
+
+	onMount(() => {
+		const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+		// En móviles, usar un offset base más alto por la barra del navegador
+		const baseOffset = isMobile ? 70 : 16;
+
+		function updateBottomOffset() {
+			if (window.visualViewport) {
+				// Diferencia entre la altura de la ventana y el viewport visual
+				const offset = window.innerHeight - window.visualViewport.height;
+				// Usar el mayor entre el offset detectado y el base para móviles
+				bottomOffset = Math.max(baseOffset, offset + 16);
+			} else {
+				bottomOffset = baseOffset;
+			}
+		}
+
+		updateBottomOffset();
+
+		// Escuchar cambios en el viewport visual (cuando aparece/desaparece el teclado o la barra)
+		if (window.visualViewport) {
+			window.visualViewport.addEventListener('resize', updateBottomOffset);
+			window.visualViewport.addEventListener('scroll', updateBottomOffset);
+		}
+		window.addEventListener('resize', updateBottomOffset);
+
+		return () => {
+			if (window.visualViewport) {
+				window.visualViewport.removeEventListener('resize', updateBottomOffset);
+				window.visualViewport.removeEventListener('scroll', updateBottomOffset);
+			}
+			window.removeEventListener('resize', updateBottomOffset);
+		};
+	});
 
 	// Total real de estaciones del Metro de Santiago (136 únicas, no duplicadas por combinaciones)
 	const TOTAL_STATIONS = 136;
@@ -108,7 +146,7 @@
 		<!-- Mobile Line Legend - Compact row -->
 		<div
 			class="glass animate-slide-up absolute left-4 right-4 z-20 flex items-center gap-2 rounded-xl border border-[var(--border-light)] p-3 shadow-[var(--shadow-lg)] md:hidden"
-			style="animation-delay: 100ms; bottom: calc(1rem + var(--safe-area-bottom, 0px))"
+			style="animation-delay: 100ms; bottom: {bottomOffset}px"
 		>
 			<!-- Lines -->
 			<div class="flex flex-1 items-center justify-center gap-2">
