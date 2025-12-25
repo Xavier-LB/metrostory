@@ -60,8 +60,14 @@ body {
 	margin: 0;
 	background-color: var(--bg-primary);
 	color: var(--text-primary);
-	/* Soporte para safe-area en dispositivos con notch/home bar */
-	padding-bottom: var(--safe-area-bottom);
+}
+
+/* Fallback para navegadores sin soporte de dvh */
+@supports not (height: 100dvh) {
+	.h-dvh {
+		height: 100vh;
+		height: -webkit-fill-available;
+	}
 }
 
 body {

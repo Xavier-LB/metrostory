@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
 	import { stations, lines, linesById, futureLines, ghostStations, rollingStock } from '$lib';
 	import type { Station, MetroLine } from '$lib/types';
 	import MetroMap from '$lib/components/Map/MetroMap.svelte';
@@ -13,54 +12,6 @@
 	let showInfoPanel = $state(false);
 	let activeInfoTab = $state<'future' | 'ghost' | 'trains'>('future');
 
-	// Detectar barra de navegación del navegador móvil
-	let bottomOffset = $state(16); // Default 1rem
-
-	onMount(() => {
-		const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-
-		function updateBottomOffset() {
-			if (!isMobile) {
-				bottomOffset = 16;
-				return;
-			}
-
-			// Calcular la diferencia entre la pantalla completa y el viewport visible
-			// Esto nos da el espacio ocupado por barras del navegador/sistema
-			const screenHeight = window.screen.height;
-			const innerHeight = window.innerHeight;
-			const browserChrome = screenHeight - innerHeight;
-
-			// En móviles, la barra de navegación típicamente ocupa 50-120px
-			// Usamos un mínimo de 24px y un máximo razonable
-			const estimatedBarHeight = Math.min(Math.max(browserChrome * 0.3, 24), 120);
-
-			// Si Visual Viewport está disponible, usamos el offset real
-			if (window.visualViewport) {
-				const vpOffset = window.innerHeight - window.visualViewport.height;
-				bottomOffset = Math.max(estimatedBarHeight, vpOffset + 16);
-			} else {
-				bottomOffset = estimatedBarHeight;
-			}
-		}
-
-		updateBottomOffset();
-
-		// Escuchar cambios
-		if (window.visualViewport) {
-			window.visualViewport.addEventListener('resize', updateBottomOffset);
-		}
-		window.addEventListener('resize', updateBottomOffset);
-		window.addEventListener('orientationchange', updateBottomOffset);
-
-		return () => {
-			if (window.visualViewport) {
-				window.visualViewport.removeEventListener('resize', updateBottomOffset);
-			}
-			window.removeEventListener('resize', updateBottomOffset);
-			window.removeEventListener('orientationchange', updateBottomOffset);
-		};
-	});
 
 	// Total real de estaciones del Metro de Santiago (136 únicas, no duplicadas por combinaciones)
 	const TOTAL_STATIONS = 136;
@@ -104,7 +55,7 @@
 	<title>MetroStory - Historia del Metro de Santiago</title>
 </svelte:head>
 
-<div class="relative h-screen w-screen overflow-hidden bg-[var(--bg-primary)]">
+<div class="relative h-dvh w-screen overflow-hidden bg-[var(--bg-primary)]">
 	<!-- Decorative metro line accent at top -->
 	<div class="metro-gradient absolute left-0 right-0 top-0 z-50 h-1"></div>
 
@@ -157,8 +108,8 @@
 
 		<!-- Mobile Line Legend - Compact row -->
 		<div
-			class="glass animate-slide-up absolute left-4 right-4 z-20 flex items-center gap-2 rounded-xl border border-[var(--border-light)] p-3 shadow-[var(--shadow-lg)] md:hidden"
-			style="animation-delay: 100ms; bottom: {bottomOffset}px"
+			class="glass animate-slide-up absolute bottom-4 left-4 right-4 z-20 flex items-center gap-2 rounded-xl border border-[var(--border-light)] p-3 shadow-[var(--shadow-lg)] md:hidden"
+			style="animation-delay: 100ms"
 		>
 			<!-- Lines -->
 			<div class="flex flex-1 items-center justify-center gap-2">
