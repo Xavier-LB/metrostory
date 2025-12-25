@@ -242,7 +242,7 @@
 				data: '/lines.geojson'
 			});
 
-			// Cargar GeoJSON de estaciones
+			// Cargar GeoJSON de estaciones (coordenadas correctas sobre las líneas)
 			map.addSource('metro-stations', {
 				type: 'geojson',
 				data: '/stops.geojson'
