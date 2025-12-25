@@ -1,6 +1,7 @@
 <script lang="ts">
 	import type { Station, MetroLine } from '$lib/types';
 	import LineBadge from '$lib/components/UI/LineBadge.svelte';
+	import { sourcesById, dataDisclaimer } from '$lib/data/sources';
 
 	interface Props {
 		station: Station;
@@ -34,7 +35,7 @@
 
 <div class="animate-slide-in flex h-full flex-col bg-[var(--bg-secondary)]">
 	<!-- Header with accent line -->
-	<header class="relative border-b border-[var(--border-light)] px-6 pb-6 pt-8">
+	<header class="relative border-b border-[var(--border-light)] px-4 pb-4 pt-6 md:px-6 md:pb-6 md:pt-8">
 		<!-- Colored accent bar -->
 		<div
 			class="absolute left-0 right-0 top-0 h-1"
@@ -74,13 +75,6 @@
 							Terminal
 						</span>
 					{/if}
-					{#if station.isAccessible}
-						<span
-							class="font-ui rounded-full bg-[var(--metro-l5)]/10 px-3 py-1 text-[10px] font-medium uppercase tracking-wide text-[var(--metro-l5)]"
-						>
-							Accesible
-						</span>
-					{/if}
 				</div>
 			</div>
 
@@ -98,13 +92,13 @@
 	</header>
 
 	<!-- Content -->
-	<div class="flex-1 overflow-y-auto px-6 py-6">
+	<div class="flex-1 overflow-y-auto px-4 py-4 md:px-6 md:py-6">
 		<!-- Quick facts grid -->
 		<section class="mb-8">
 			<h3
 				class="font-display mb-4 text-[10px] font-semibold uppercase tracking-[0.2em] text-[var(--text-tertiary)]"
 			>
-				Información
+				Datos técnicos
 			</h3>
 
 			<div class="grid gap-4">
@@ -212,30 +206,195 @@
 		</section>
 
 		<!-- History -->
-		<section>
+		<section class="mb-8">
 			<h3
 				class="font-display mb-4 text-[10px] font-semibold uppercase tracking-[0.2em] text-[var(--text-tertiary)]"
 			>
-				Historia del nombre
+				Historia
 			</h3>
 
 			<div class="relative rounded-xl bg-[var(--bg-tertiary)] p-5">
-				<!-- Decorative quote mark -->
-				<div class="absolute -left-1 -top-2 font-display text-4xl text-[var(--border-medium)]">
-					"
-				</div>
-
-				<p class="font-body relative z-10 text-[15px] leading-relaxed text-[var(--text-secondary)]">
+				<p class="font-body text-[15px] leading-relaxed text-[var(--text-secondary)]">
 					{station.history}
 				</p>
 			</div>
 		</section>
+
+		<!-- Name Origin -->
+		{#if station.nameOrigin}
+			<section class="mb-8">
+				<h3
+					class="font-display mb-4 text-[10px] font-semibold uppercase tracking-[0.2em] text-[var(--text-tertiary)]"
+				>
+					Origen del nombre
+				</h3>
+
+				<div class="relative rounded-xl bg-[var(--bg-tertiary)] p-5">
+					<!-- Decorative quote mark -->
+					<div class="absolute -left-1 -top-2 font-display text-4xl text-[var(--border-medium)]">
+						"
+					</div>
+
+					<p class="font-body relative z-10 text-[15px] leading-relaxed text-[var(--text-secondary)]">
+						{station.nameOrigin}
+					</p>
+				</div>
+			</section>
+		{/if}
+
+		<!-- Curiosity / Fun Fact -->
+		{#if station.curiosity}
+			<section class="mb-8">
+				<h3
+					class="font-display mb-4 text-[10px] font-semibold uppercase tracking-[0.2em] text-[var(--text-tertiary)]"
+				>
+					¿Sabías que...?
+				</h3>
+
+				<div
+					class="rounded-xl border-l-4 bg-[var(--bg-accent)] p-4"
+					style="border-color: {getPrimaryLineColor()}"
+				>
+					<p class="font-body text-sm leading-relaxed text-[var(--text-secondary)]">
+						{station.curiosity}
+					</p>
+				</div>
+			</section>
+		{/if}
+
+		<!-- Pictogram (for L3/L6 stations) -->
+		{#if station.pictogram}
+			<section class="mb-8">
+				<h3
+					class="font-display mb-4 text-[10px] font-semibold uppercase tracking-[0.2em] text-[var(--text-tertiary)]"
+				>
+					Pictograma
+				</h3>
+
+				<div class="rounded-xl bg-[var(--bg-tertiary)] p-4">
+					<p class="font-body text-sm text-[var(--text-secondary)]">
+						{station.pictogram}
+					</p>
+				</div>
+			</section>
+		{/if}
+
+		<!-- MetroArte (Artworks) -->
+		{#if station.artworks && station.artworks.length > 0}
+			<section class="mb-8">
+				<h3
+					class="font-display mb-4 text-[10px] font-semibold uppercase tracking-[0.2em] text-[var(--text-tertiary)]"
+				>
+					MetroArte
+				</h3>
+
+				<div class="space-y-3">
+					{#each station.artworks as artwork}
+						<div class="rounded-xl bg-[var(--bg-tertiary)] p-4">
+							<div class="flex items-start gap-3">
+								<div
+									class="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg"
+									style="background-color: {getPrimaryLineColor()}15"
+								>
+									<span class="text-lg">🖼️</span>
+								</div>
+								<div class="flex-1">
+									<h4 class="font-display text-sm font-bold text-[var(--text-primary)]">
+										{artwork.title}
+									</h4>
+									<p class="font-body text-xs text-[var(--text-tertiary)]">
+										{artwork.artist}{artwork.year ? ` (${artwork.year})` : ''}
+									</p>
+									<p class="mt-2 font-body text-sm leading-relaxed text-[var(--text-secondary)]">
+										{artwork.description}
+									</p>
+									{#if artwork.size}
+										<p class="mt-1 font-ui text-[10px] uppercase tracking-wide text-[var(--text-muted)]">
+											{artwork.size}
+										</p>
+									{/if}
+								</div>
+							</div>
+						</div>
+					{/each}
+				</div>
+			</section>
+		{/if}
+
+		<!-- Ghost Station Info -->
+		{#if station.isGhost && station.ghostInfo}
+			<section class="mb-8">
+				<h3
+					class="font-display mb-4 text-[10px] font-semibold uppercase tracking-[0.2em] text-gray-500"
+				>
+					Estación Fantasma
+				</h3>
+
+				<div class="rounded-xl border border-gray-300 bg-gray-50 p-4">
+					<div class="mb-3 flex items-center gap-2">
+						<span class="text-2xl">👻</span>
+						<span class="rounded-full bg-gray-200 px-2 py-0.5 text-[10px] font-bold uppercase text-gray-600">
+							{station.ghostInfo.status === 'obra_terminada'
+								? 'Obra terminada'
+								: station.ghostInfo.status === 'obra_gruesa'
+									? 'Obra gruesa'
+									: 'Oculta'}
+						</span>
+					</div>
+					<p class="font-body text-sm text-gray-600">
+						<strong>Razón:</strong>
+						{station.ghostInfo.reason}
+					</p>
+					{#if station.ghostInfo.currentState}
+						<p class="mt-2 font-body text-sm text-gray-600">
+							<strong>Estado actual:</strong>
+							{station.ghostInfo.currentState}
+						</p>
+					{/if}
+				</div>
+			</section>
+		{/if}
+
+		<!-- Sources -->
+		{#if station.sources && station.sources.length > 0}
+			<section class="mb-8">
+				<h3
+					class="font-display mb-4 text-[10px] font-semibold uppercase tracking-[0.2em] text-[var(--text-tertiary)]"
+				>
+					Fuentes
+				</h3>
+
+				<div class="space-y-2">
+					{#each station.sources as sourceId}
+						{@const source = sourcesById[sourceId]}
+						{#if source}
+							<div class="rounded-lg bg-[var(--bg-tertiary)] px-3 py-2">
+								{#if source.url}
+									<a
+										href={source.url}
+										target="_blank"
+										rel="noopener noreferrer"
+										class="font-body text-xs text-[var(--text-secondary)] underline decoration-dotted hover:text-[var(--text-primary)]"
+									>
+										{source.title}
+									</a>
+								{:else}
+									<span class="font-body text-xs text-[var(--text-secondary)]">
+										{source.title}
+									</span>
+								{/if}
+							</div>
+						{/if}
+					{/each}
+				</div>
+			</section>
+		{/if}
 	</div>
 
-	<!-- Footer -->
-	<footer class="border-t border-[var(--border-light)] px-6 py-4">
-		<p class="font-ui text-center text-[10px] text-[var(--text-muted)]">
-			Coordenadas: {station.coordinates[1].toFixed(4)}, {station.coordinates[0].toFixed(4)}
+	<!-- Footer with AI disclaimer -->
+	<footer class="border-t border-[var(--border-light)] px-4 py-3 md:px-6 md:py-4">
+		<p class="font-ui text-center text-[9px] text-[var(--text-muted)] md:text-[10px]">
+			{dataDisclaimer.text}
 		</p>
 	</footer>
 </div>

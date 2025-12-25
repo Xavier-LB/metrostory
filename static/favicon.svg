@@ -1,0 +1,15 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="32" height="32" rx="6" fill="#FAFAFA"/>
+  <!-- Metro lines inspired by logo -->
+  <!-- L1 Red - horizontal -->
+  <path d="M4 16H28" stroke="#D60D27" stroke-width="3" stroke-linecap="round"/>
+  <!-- L5 Green - diagonal -->
+  <path d="M8 28L24 4" stroke="#179859" stroke-width="3" stroke-linecap="round"/>
+  <!-- L4 Blue - vertical -->
+  <path d="M16 4V28" stroke="#0471B9" stroke-width="3" stroke-linecap="round"/>
+  <!-- L2 Yellow - diagonal -->
+  <path d="M4 8L28 24" stroke="#FAB515" stroke-width="3" stroke-linecap="round"/>
+  <!-- Center station dot -->
+  <circle cx="16" cy="16" r="4" fill="white" stroke="#D60D27" stroke-width="2"/>
+</svg>
