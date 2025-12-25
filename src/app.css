@@ -2,6 +2,9 @@
 @import 'mapbox-gl/dist/mapbox-gl.css';
 
 :root {
+	/* Safe area para navegadores móviles */
+	--safe-area-bottom: env(safe-area-inset-bottom, 0px);
+
 	/* Colores oficiales del Metro de Santiago */
 	--metro-l1: #d60d27;
 	--metro-l2: #fab515;
@@ -57,6 +60,8 @@ body {
 	margin: 0;
 	background-color: var(--bg-primary);
 	color: var(--text-primary);
+	/* Soporte para safe-area en dispositivos con notch/home bar */
+	padding-bottom: var(--safe-area-bottom);
 }
 
 body {
