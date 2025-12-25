@@ -140,13 +140,33 @@ export const lines: MetroLine[] = [
 ];
 
 // Líneas futuras (en construcción o planificadas)
+// Datos actualizados de Memoria Integrada 2024
 export const futureLines: MetroLine[] = [
+	{
+		id: 'L6-ext',
+		name: 'Extensión L6',
+		color: '#9A3488', // Mismo color que L6
+		textColor: '#FFFFFF',
+		inauguratedAt: '2027',
+		terminals: ['cerrillos', 'lo-errazuriz'],
+		length: 3.0,
+		stationCount: 1, // Lo Errázuriz (intermodal)
+		rodadura: 'ferrea',
+		automationLevel: 'GoA4',
+		status: 'construction',
+		constructionMethod: 'NATM',
+		description:
+			'Extensión poniente de la Línea 6. Nueva estación intermodal Lo Errázuriz conectará con el futuro Tren Santiago-Melipilla. Beneficiará a 90.000 habitantes. Inversión: USD $244 millones. 21% de avance a abril 2025.',
+		historicalNote:
+			'Obras iniciadas el 4 de abril de 2024. Excavaciones de piques, galerías y túneles hasta junio 2026. Obras civiles de estación de febrero 2026 a 2027.',
+		sources: ['meganoticias-l6-ext', 'theclinic-l6-ext']
+	},
 	{
 		id: 'L7',
 		name: 'Línea 7',
-		color: '#F5A000',
-		textColor: '#000000',
-		inauguratedAt: '2027',
+		color: '#00A88E', // Verde turquesa oficial
+		textColor: '#FFFFFF',
+		inauguratedAt: '2028',
 		terminals: ['renca', 'vitacura'],
 		length: 26.0,
 		stationCount: 19,
@@ -155,48 +175,48 @@ export const futureLines: MetroLine[] = [
 		status: 'construction',
 		constructionMethod: 'NATM',
 		description:
-			'Diseñada para descongestionar la saturada Línea 1, corriendo paralela a ella hacia el norte. Llevará el metro por primera vez a Renca, conectándola con Vitacura.',
+			'Conectará 8 comunas: Renca, Cerro Navia, Quinta Normal, Santiago, Recoleta, Providencia, Las Condes y Vitacura. Beneficiará a 1,6 millones de personas con 37 minutos entre terminales. Inversión: USD $2.528 millones. 30% de avance a junio 2025.',
 		historicalNote:
-			'Utilizará los nuevos trenes AS-2022. Un hito social al conectar comunas históricamente segregadas con el sector oriente de la ciudad.',
-		sources: ['wikipedia-l7', 'gob-l8']
+			'Primera línea con tuneladora urbana "La Matucana". A junio 2025: 30% de avance con 12,6 km de túneles excavados. En julio 2025, Alstom completó el primer casco de tren AS-2022. Serán automáticos sin conductor (GoA4).',
+		sources: ['emol-l7-2025', 'alstom-l7-tren', 'metro-l7-oficial']
 	},
 	{
 		id: 'L8',
 		name: 'Línea 8',
-		color: '#00B4D8',
-		textColor: '#000000',
-		inauguratedAt: '2032',
-		terminals: ['puente-alto', 'los-leones'],
-		length: 20.0,
-		stationCount: 16,
-		rodadura: 'ferrea',
-		automationLevel: 'GoA4',
-		status: 'planned',
-		constructionMethod: 'NATM',
-		description:
-			'Conectará Puente Alto y La Florida con Providencia (Los Leones) a través de los ejes La Florida y Macul.',
-		historicalNote:
-			'Se prevé su entrega en tramos escalonados entre 2032 y 2033. Generará nuevas combinaciones con L3, L5 y L6.',
-		sources: ['gob-l8']
-	},
-	{
-		id: 'L9',
-		name: 'Línea 9',
-		color: '#6B5B95',
+		color: '#E87C03', // Naranja oficial
 		textColor: '#FFFFFF',
-		inauguratedAt: '2033',
-		terminals: ['la-pintana', 'cal-y-canto'],
-		length: 18.5,
+		inauguratedAt: '2032',
+		terminals: ['los-leones', 'puente-alto'],
+		length: 19.0,
 		stationCount: 14,
 		rodadura: 'ferrea',
 		automationLevel: 'GoA4',
 		status: 'planned',
 		constructionMethod: 'NATM',
 		description:
-			'La línea de mayor impacto social proyectada. Conectará La Pintana, comuna históricamente segregada, con el centro de Santiago en menos de 30 minutos, reduciendo tiempos de viaje en un 70%.',
+			'Conectará 6 comunas: Providencia, Ñuñoa, Macul, Peñalolén, La Florida y Puente Alto. Beneficiará a 1,9 millones de habitantes. 23 minutos Providencia-Puente Alto. Inversión: USD $1.899 millones. En fase de ingeniería.',
 		historicalNote:
-			'Transformará a Puente Cal y Canto en la "Estación Central" del sistema subterráneo con cuádruple combinación (L2, L3, L7, L9). Un hito de justicia territorial.',
-		sources: ['gob-l9']
+			'En fase de ingeniería y diseño (2025). Construcción programada para iniciar en 2027. Tramo Chile España-Mall Plaza Tobalaba inaugurará 2032. Tramo norte hasta Los Leones inaugurará 2033. 3 combinaciones: Los Leones (L1/L6), Chile España (L3), Macul (L4).',
+		sources: ['meganoticias-l8', 'wikipedia-l8', 'gob-l8']
+	},
+	{
+		id: 'L9',
+		name: 'Línea 9',
+		color: '#8B4513', // Café/marrón oficial
+		textColor: '#FFFFFF',
+		inauguratedAt: '2030',
+		terminals: ['puente-cal-y-canto', 'plaza-de-puente-alto'],
+		length: 27.0,
+		stationCount: 19,
+		rodadura: 'ferrea',
+		automationLevel: 'GoA4',
+		status: 'construction',
+		constructionMethod: 'NATM',
+		description:
+			'Conectará 8 comunas: Recoleta, Santiago, San Miguel, San Joaquín, La Granja, San Ramón, La Pintana y Puente Alto. Beneficiará a 2 millones de habitantes. 35 minutos centro-Puente Alto. Inversión: USD $2.733 millones (la mayor).',
+		historicalNote:
+			'Construcción iniciada el 19 de agosto de 2025 por el Presidente Boric. Primer tramo Bío Bío-Plaza de La Pintana. RCA aprobada mayo 2025. Entrega en 3 tramos: 2030, 2032 y 2033. Sumará 6 combinaciones. Corre por eje Av. Santa Rosa.',
+		sources: ['prensa-presidencia-l9', 'cooperativa-l9', 'wikipedia-l9']
 	}
 ];
 

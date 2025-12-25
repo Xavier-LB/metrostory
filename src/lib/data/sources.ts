@@ -286,6 +286,98 @@ export const sources: SourceReference[] = [
 		title: 'MetroArte - Obras del programa',
 		url: 'http://www.arauco.org/gmv/proyectos/chilehoy/MetroArte/MetroArte.html',
 		consultedAt: '2024-12'
+	},
+	// Fuentes 2025 - Actualización proyectos de expansión
+	{
+		id: 'memoria-2024',
+		title: 'Memoria Integrada 2024 - Metro de Santiago',
+		url: 'https://www.metro.cl/gobierno-corporativo/memoria',
+		consultedAt: '2024-12'
+	},
+	{
+		id: 'emol-l7-2025',
+		title: 'Emol - Línea 7 llega al 30% de avance (junio 2025)',
+		url: 'https://www.emol.com/noticias/Nacional/2025/06/30/1170813/linea-7-metro-santiago-avances.html',
+		consultedAt: '2025-12'
+	},
+	{
+		id: 'alstom-l7-tren',
+		title: 'Alstom - Producción primer tren Línea 7 (julio 2025)',
+		url: 'https://www.alstom.com/press-releases-news/2025/7/alstom-completes-production-first-train-carbody-shell-santiago-metro-line-7',
+		consultedAt: '2025-12'
+	},
+	{
+		id: 'metro-l7-oficial',
+		title: 'Metro de Santiago - Página oficial Línea 7',
+		url: 'https://www.metro.cl/nuevos-proyectos/linea-7',
+		consultedAt: '2025-12'
+	},
+	{
+		id: 'elmostrador-l7',
+		title: 'El Mostrador - Línea 7 cuándo comenzará a funcionar',
+		url: 'https://www.elmostrador.cl/datos-utiles/2025/12/17/linea-7-del-metro-de-santiago-cuando-comenza-a-funcionar-duracion-de-viajes-y-nuevas-estaciones/',
+		consultedAt: '2025-12'
+	},
+	{
+		id: 'meganoticias-l8',
+		title: 'Meganoticias - Línea 8 inauguración primer tramo',
+		url: 'https://www.meganoticias.cl/dato-util/497057-linea-8-metro-de-santiago-fecha-inauguracion-primer-tramo-estaciones-comunas-dcv-30-08-2025.html',
+		consultedAt: '2025-12'
+	},
+	{
+		id: 'wikipedia-l8',
+		title: 'Wikipedia - Línea 8 del Metro de Santiago',
+		url: 'https://es.wikipedia.org/wiki/L%C3%ADnea_8_del_Metro_de_Santiago',
+		consultedAt: '2025-12'
+	},
+	{
+		id: 'prensa-presidencia-l9',
+		title: 'Prensa Presidencia - Inicio obras Línea 9 (agosto 2025)',
+		url: 'https://prensa.presidencia.cl/comunicado.aspx?id=302432',
+		consultedAt: '2025-12'
+	},
+	{
+		id: 'wikipedia-l9',
+		title: 'Wikipedia - Línea 9 del Metro de Santiago',
+		url: 'https://es.wikipedia.org/wiki/L%C3%ADnea_9_del_Metro_de_Santiago',
+		consultedAt: '2025-12'
+	},
+	{
+		id: 'cooperativa-l9',
+		title: 'Cooperativa - Línea 9 a punto de iniciar obras (mayo 2025)',
+		url: 'https://cooperativa.cl/noticias/pais/transportes/metro/la-linea-9-del-metro-de-santiago-esta-a-punto-de-iniciar-obras/2025-05-19/203810.html',
+		consultedAt: '2025-12'
+	},
+	{
+		id: 'elmostrador-l9',
+		title: 'El Mostrador - Línea 9 conexión de 8 comunas',
+		url: 'https://www.elmostrador.cl/datos-utiles/2025/09/09/linea-9-del-metro-de-santiago-nueva-conexion-de-8-comunas-y-27-km-para-2-millones-de-habitantes/',
+		consultedAt: '2025-12'
+	},
+	{
+		id: 'gob-l9-obras',
+		title: 'Gob.cl - Comienzo obras Línea 9',
+		url: 'https://www.gob.cl/noticias/comienzo-obras-linea-9-metro-santiago-trayecto-inicio-operaciones/',
+		consultedAt: '2025-12'
+	},
+	// Fuentes Extensión L6
+	{
+		id: 'meganoticias-l6-ext',
+		title: 'Meganoticias - Extensión L6 con 21% de avance (abril 2025)',
+		url: 'https://www.meganoticias.cl/nacional/483087-extension-linea-6-del-metro-cuando-se-inaugura-pdp-23-04-2025.html',
+		consultedAt: '2025-12'
+	},
+	{
+		id: 'theclinic-l6-ext',
+		title: 'The Clinic - Extensión L6 lista en 2027',
+		url: 'https://www.theclinic.cl/2025/04/23/extension-de-la-linea-6-del-metro-ya-tiene-21-de-avance-y-estaria-lista-en-2027-sumara-tres-kilometros-de-extension/',
+		consultedAt: '2025-12'
+	},
+	{
+		id: 'biobiochile-l6-ext',
+		title: 'BioBioChile - Extensión L6 nuevas estaciones',
+		url: 'https://www.biobiochile.cl/noticias/servicios/toma-nota/2024/04/09/extension-de-la-linea-6-del-metro-cuando-operara-y-cuales-seran-las-nuevas-estaciones.shtml',
+		consultedAt: '2025-12'
 	}
 ];
 

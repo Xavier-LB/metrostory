@@ -60,22 +60,11 @@
 						class="flex h-10 w-10 items-center justify-center rounded-full text-lg font-bold"
 						style="background-color: {line.color}; color: {line.textColor}"
 					>
-						{line.id.replace('L', '')}
+						{line.id === 'L6-ext' ? '6' : line.id.replace('L', '')}
 					</div>
-					<div>
-						<h2 class="font-display text-2xl font-bold text-[var(--text-primary)]">
-							{line.name}
-						</h2>
-						<p class="font-ui text-xs uppercase tracking-wide text-[var(--text-tertiary)]">
-							{#if line.status === 'operational'}
-								En operación desde {formatDate(line.inauguratedAt)}
-							{:else if line.status === 'construction'}
-								En construcción - {line.inauguratedAt}
-							{:else}
-								Planificada - {line.inauguratedAt}
-							{/if}
-						</p>
-					</div>
+					<h2 class="font-display text-2xl font-bold text-[var(--text-primary)]">
+						{line.name}
+					</h2>
 				</div>
 
 				<!-- Status badges -->
