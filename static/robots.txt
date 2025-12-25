@@ -1,0 +1,14 @@
+# MetroStory - Historia del Metro de Santiago
+# https://metrostory.lebaux.co
+
+User-agent: *
+Allow: /
+
+# Pages to exclude from indexing
+Disallow: /compare
+
+# Sitemap
+Sitemap: https://metrostory.lebaux.co/sitemap.xml
+
+# Crawl-delay for polite crawling
+Crawl-delay: 1

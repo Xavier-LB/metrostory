@@ -11,11 +11,25 @@
 			gtag('js', new Date());
 			gtag('config', 'G-W2BHXJ88CB');
 		</script>
+
+		<!-- Primary Meta Tags -->
 		<link rel="icon" type="image/svg+xml" href="%sveltekit.assets%/favicon.svg" />
 		<link rel="icon" type="image/png" href="%sveltekit.assets%/favicon.png" />
 		<link rel="apple-touch-icon" href="%sveltekit.assets%/favicon.png" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-		<meta name="description" content="Descubre la historia del Metro de Santiago, estación por estación" />
+		<meta name="description" content="Descubre la historia del Metro de Santiago, estación por estación. Origen de los nombres, datos históricos y curiosidades de las 143 estaciones." />
+		<meta name="author" content="MetroStory" />
+		<meta name="theme-color" content="#D60D27" />
+		<meta name="robots" content="index, follow" />
+
+		<!-- Geo Tags for Local SEO -->
+		<meta name="geo.region" content="CL-RM" />
+		<meta name="geo.placename" content="Santiago, Chile" />
+		<meta name="geo.position" content="-33.4489;-70.6693" />
+		<meta name="ICBM" content="-33.4489, -70.6693" />
+
+		<!-- Keywords for SEO -->
+		<meta name="keywords" content="metro santiago, historia metro santiago, estaciones metro, significado nombres estaciones, metro chile, transporte santiago, linea 1 metro, linea 2 metro, linea 3 metro, linea 4 metro, linea 5 metro, linea 6 metro, mapas metro santiago, origen nombres estaciones metro" />
 
 		<!-- Open Graph / WhatsApp / Facebook -->
 		<meta property="og:type" content="website" />
@@ -34,10 +48,67 @@
 		<meta name="twitter:description" content="Descubre la historia del Metro de Santiago, estación por estación." />
 		<meta name="twitter:image" content="https://metrostory.lebaux.co/logo.png" />
 
+		<!-- JSON-LD Structured Data for Website -->
+		<script type="application/ld+json">
+		{
+			"@context": "https://schema.org",
+			"@type": "WebSite",
+			"name": "MetroStory",
+			"alternateName": "Historia del Metro de Santiago",
+			"url": "https://metrostory.lebaux.co/",
+			"description": "Descubre la historia del Metro de Santiago, estación por estación. Origen de los nombres, datos históricos y curiosidades.",
+			"inLanguage": "es-CL",
+			"potentialAction": {
+				"@type": "SearchAction",
+				"target": {
+					"@type": "EntryPoint",
+					"urlTemplate": "https://metrostory.lebaux.co/estacion/{search_term_string}"
+				},
+				"query-input": "required name=search_term_string"
+			},
+			"about": {
+				"@type": "TransitMap",
+				"name": "Metro de Santiago",
+				"description": "Sistema de transporte subterráneo de Santiago de Chile con más de 140 estaciones"
+			},
+			"publisher": {
+				"@type": "Organization",
+				"name": "MetroStory",
+				"url": "https://metrostory.lebaux.co/"
+			}
+		}
+		</script>
+
+		<!-- JSON-LD for Local Business / Transit System -->
+		<script type="application/ld+json">
+		{
+			"@context": "https://schema.org",
+			"@type": "TransitMap",
+			"name": "Mapa Interactivo del Metro de Santiago",
+			"description": "Mapa interactivo con la historia y origen de los nombres de las 143 estaciones del Metro de Santiago",
+			"url": "https://metrostory.lebaux.co/",
+			"inLanguage": "es-CL",
+			"isAccessibleForFree": true,
+			"spatialCoverage": {
+				"@type": "Place",
+				"name": "Santiago de Chile",
+				"geo": {
+					"@type": "GeoCoordinates",
+					"latitude": -33.4489,
+					"longitude": -70.6693
+				}
+			}
+		}
+		</script>
+
 		<!-- Google Fonts: Sora (geometric, modern) + Source Serif 4 (elegant body) -->
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+
+		<!-- Preconnect to Mapbox for performance -->
+		<link rel="preconnect" href="https://api.mapbox.com">
+		<link rel="preconnect" href="https://events.mapbox.com">
 
 		%sveltekit.head%
 	</head>
