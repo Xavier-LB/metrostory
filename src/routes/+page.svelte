@@ -107,7 +107,7 @@
 
 		<!-- Mobile Line Legend - Compact row -->
 		<div
-			class="glass animate-slide-up absolute bottom-4 left-4 right-4 z-20 flex items-center gap-2 rounded-xl border border-[var(--border-light)] p-3 shadow-[var(--shadow-lg)] md:hidden"
+			class="glass animate-slide-up absolute bottom-6 left-4 right-4 z-20 flex items-center gap-2 rounded-xl border border-[var(--border-light)] p-3 pb-[calc(0.75rem+env(safe-area-inset-bottom,0px))] shadow-[var(--shadow-lg)] md:hidden"
 			style="animation-delay: 100ms"
 		>
 			<!-- Lines -->

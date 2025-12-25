@@ -146,6 +146,14 @@
 			</div>
 
 			<div class="mt-3 space-y-2">
+				<!-- Inauguration -->
+				<div class="flex items-center justify-between rounded-lg bg-[var(--bg-tertiary)] px-4 py-3">
+					<span class="font-ui text-xs text-[var(--text-tertiary)]">Inauguración</span>
+					<span class="font-body text-sm text-[var(--text-primary)]">
+						{formatDate(line.inauguratedAt)}
+					</span>
+				</div>
+
 				<!-- Rodadura -->
 				<div class="flex items-center justify-between rounded-lg bg-[var(--bg-tertiary)] px-4 py-3">
 					<span class="font-ui text-xs text-[var(--text-tertiary)]">Rodadura</span>
@@ -213,17 +221,17 @@
 			</section>
 		{/if}
 
-		<!-- Stations list preview -->
+		<!-- Stations list -->
 		{#if stationsOnLine.length > 0}
 			<section class="mb-8">
 				<h3
 					class="font-display mb-4 text-[10px] font-semibold uppercase tracking-[0.2em] text-[var(--text-tertiary)]"
 				>
-					Estaciones con información ({stationsOnLine.length} de {line.stationCount})
+					Estaciones
 				</h3>
 
 				<div class="space-y-1">
-					{#each stationsOnLine.slice(0, 8) as station}
+					{#each stationsOnLine as station}
 						<div class="flex items-center gap-2 rounded-lg px-3 py-2 hover:bg-[var(--bg-tertiary)]">
 							<div class="h-2 w-2 rounded-full" style="background-color: {line.color}"></div>
 							<span class="font-body text-sm text-[var(--text-secondary)]">{station.name}</span>
@@ -234,13 +242,6 @@
 							{/if}
 						</div>
 					{/each}
-					{#if stationsOnLine.length > 8}
-						<div class="px-3 py-2 text-center">
-							<span class="font-ui text-xs text-[var(--text-muted)]">
-								... y {stationsOnLine.length - 8} más con información detallada
-							</span>
-						</div>
-					{/if}
 				</div>
 			</section>
 		{/if}

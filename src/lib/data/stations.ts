@@ -1159,6 +1159,157 @@ export const stations: Station[] = [
 		sources: ['wikipedia-l5']
 	},
 	{
+		id: 'santiago-bueras',
+		name: 'Santiago Bueras',
+		coordinates: [-70.7498, -33.5078],
+		lines: ['L5'],
+		inauguratedAt: '2011-02-03',
+		commune: 'Maipú',
+		history: 'Parte de la extensión de L5 a Maipú (2011).',
+		nameOrigin:
+			'Homenaje al coronel Santiago Bueras, héroe de la independencia famoso por sus cargas de caballería y su fuerza física excepcional. Murió heroicamente en la Batalla de Maipú.',
+		isTransfer: false,
+		isTerminal: false,
+		isAccessible: true,
+		sources: ['wikipedia-l5', 'gemini-origen']
+	},
+	{
+		id: 'del-sol',
+		name: 'Del Sol',
+		coordinates: [-70.7389, -33.5012],
+		lines: ['L5'],
+		inauguratedAt: '2011-02-03',
+		commune: 'Maipú',
+		history:
+			'Estación intermodal de arquitectura monumental con grandes tensoestructuras blancas que permiten la entrada de luz natural, evocando el nombre en su diseño.',
+		nameOrigin:
+			'Deriva del Fundo El Sol, el predio agrícola que existía en esta ubicación antes de la urbanización masiva de Maipú.',
+		isTransfer: false,
+		isTerminal: false,
+		isAccessible: true,
+		sources: ['wikipedia-l5', 'archdaily-del-sol']
+	},
+	{
+		id: 'monte-tabor',
+		name: 'Monte Tabor',
+		coordinates: [-70.7278, -33.4934],
+		lines: ['L5'],
+		inauguratedAt: '2011-02-03',
+		commune: 'Maipú',
+		history: 'Parte de la extensión de L5 a Maipú (2011).',
+		nameOrigin:
+			'Nombre de resonancia bíblica que también denomina al barrio y a una calle cercana. Refleja la toponimia religiosa de ciertos sectores residenciales de Maipú, evocando el monte de la transfiguración de Jesús.',
+		isTransfer: false,
+		isTerminal: false,
+		isAccessible: true,
+		sources: ['wikipedia-l5', 'gemini-origen']
+	},
+	{
+		id: 'las-parcelas',
+		name: 'Las Parcelas',
+		coordinates: [-70.7189, -33.4867],
+		lines: ['L5'],
+		inauguratedAt: '2011-02-03',
+		commune: 'Maipú',
+		history: 'Parte de la extensión de L5 a Maipú (2011).',
+		nameOrigin:
+			'Recuerdo directo de la subdivisión de la tierra agrícola. Antes de ser una zona urbana densa, este sector estaba dividido en "parcelas" de agrado y semirurales.',
+		isTransfer: false,
+		isTerminal: false,
+		isAccessible: true,
+		sources: ['wikipedia-l5', 'gemini-origen']
+	},
+	{
+		id: 'laguna-sur',
+		name: 'Laguna Sur',
+		coordinates: [-70.7098, -33.4789],
+		lines: ['L5'],
+		inauguratedAt: '2011-02-03',
+		commune: 'Maipú',
+		history: 'Parte de la extensión de L5 a Maipú (2011).',
+		nameOrigin:
+			'Toma su nombre de la calle Laguna Sur. La nomenclatura del sector utiliza nombres de lagunas y cuerpos de agua, dando identidad a los pasajes y calles del barrio.',
+		isTransfer: false,
+		isTerminal: false,
+		isAccessible: true,
+		sources: ['wikipedia-l5', 'gemini-origen']
+	},
+	{
+		id: 'barrancas',
+		name: 'Barrancas',
+		coordinates: [-70.7012, -33.4712],
+		lines: ['L5'],
+		inauguratedAt: '2011-02-03',
+		commune: 'Pudahuel',
+		history: 'Parte de la extensión de L5 a Maipú (2011).',
+		nameOrigin:
+			'Recupera la denominación histórica de la comuna de Pudahuel, que antiguamente se llamaba Las Barrancas. El término geográfico refiere a los desniveles del terreno hacia el río Mapocho.',
+		isTransfer: false,
+		isTerminal: false,
+		isAccessible: true,
+		sources: ['wikipedia-l5', 'gemini-origen']
+	},
+	{
+		id: 'pudahuel',
+		name: 'Pudahuel',
+		coordinates: [-70.6923, -33.4634],
+		lines: ['L5'],
+		inauguratedAt: '2011-02-03',
+		commune: 'Pudahuel',
+		history: 'Parte de la extensión de L5 a Maipú (2011). Sirve al centro de la comuna de Pudahuel.',
+		nameOrigin:
+			'Significa "Lugar de lagunas" o "donde se juntan las aguas" en mapudungun. Es el nombre de la comuna.',
+		isTransfer: false,
+		isTerminal: false,
+		isAccessible: true,
+		sources: ['wikipedia-l5', 'gemini-origen']
+	},
+	{
+		id: 'lo-prado',
+		name: 'Lo Prado',
+		coordinates: [-70.6845, -33.4567],
+		lines: ['L5'],
+		inauguratedAt: '2011-02-03',
+		commune: 'Lo Prado',
+		history: 'Parte de la extensión de L5 a Maipú (2011). Sirve al centro de la comuna de Lo Prado.',
+		nameOrigin: 'Por la comuna de Lo Prado, cuyo nombre deriva de un antiguo fundo colonial.',
+		isTransfer: false,
+		isTerminal: false,
+		isAccessible: true,
+		sources: ['wikipedia-l5']
+	},
+	{
+		id: 'blanqueado',
+		name: 'Blanqueado',
+		coordinates: [-70.6812, -33.4523],
+		lines: ['L5'],
+		inauguratedAt: '1997-04-05',
+		commune: 'Lo Prado',
+		history: 'Parte del tramo original de L5 (1997).',
+		nameOrigin:
+			'Refiere a un sector tradicional, cuyo nombre podría derivar de antiguas construcciones encaladas (blanqueadas) o de las características del suelo en la época colonial.',
+		isTransfer: false,
+		isTerminal: false,
+		isAccessible: true,
+		sources: ['wikipedia-l5', 'gemini-origen']
+	},
+	{
+		id: 'gruta-de-lourdes',
+		name: 'Gruta de Lourdes',
+		coordinates: [-70.6834, -33.4445],
+		lines: ['L5'],
+		inauguratedAt: '1997-04-05',
+		commune: 'Quinta Normal',
+		history: 'Parte del tramo original de L5 (1997).',
+		nameOrigin:
+			'Ubicada frente a la Basílica de Lourdes en Quinta Normal, un importante centro de peregrinación mariana inspirado en el santuario francés. La gruta es una réplica exacta de la de Massabielle en Francia.',
+		curiosity: 'Convoca a miles de fieles, otorgando a la estación una identidad espiritual profunda.',
+		isTransfer: false,
+		isTerminal: false,
+		isAccessible: true,
+		sources: ['wikipedia-l5', 'gemini-origen']
+	},
+	{
 		id: 'quinta-normal',
 		name: 'Quinta Normal',
 		coordinates: [-70.68, -33.4403],
@@ -1168,14 +1319,166 @@ export const stations: Station[] = [
 		history:
 			'Alberga el mural "Verbo América" de Roberto Matta, obra de cerámica policromada con surrealismo cósmico.',
 		nameOrigin:
-			'Por el Parque Quinta Normal, espacio que funcionaba como quinta de experimentación agrícola desde 1842.',
+			'Por el Parque Quinta Normal, fundado en 1841 como la "Quinta Normal de Agricultura", un campo de experimentación para introducir nuevas especies botánicas y técnicas agrícolas en Chile.',
 		curiosity:
-			'El parque alberga varios museos y fue sede de exposiciones internacionales en el siglo XIX.',
+			'El parque alberga el Museo Ferroviario y el Museo de Historia Natural.',
 		isTransfer: false,
 		isTerminal: false,
 		isAccessible: true,
 		artworks: getArtworksByStation('quinta-normal'),
 		sources: ['wikipedia-l5', 'metroarte-org']
+	},
+	{
+		id: 'cumming',
+		name: 'Cumming',
+		coordinates: [-70.6723, -33.4389],
+		lines: ['L5'],
+		inauguratedAt: '1997-04-05',
+		commune: 'Santiago',
+		history: 'Parte del tramo original de L5 (1997).',
+		nameOrigin:
+			'Por la Avenida Ricardo Cumming. Ricardo Cumming fue un comerciante británico del siglo XIX involucrado en conspiraciones políticas durante la época de los ensayos constitucionales, siendo ejecutado por sus ideales.',
+		isTransfer: false,
+		isTerminal: false,
+		isAccessible: true,
+		sources: ['wikipedia-l5', 'gemini-origen']
+	},
+	{
+		id: 'bellas-artes',
+		name: 'Bellas Artes',
+		coordinates: [-70.6432, -33.4356],
+		lines: ['L5'],
+		inauguratedAt: '1997-04-05',
+		commune: 'Santiago',
+		history:
+			'Ubicada frente al Museo Nacional de Bellas Artes y al Parque Forestal. El barrio es un centro de arquitectura afrancesada y vida bohemia.',
+		nameOrigin:
+			'Por el Museo Nacional de Bellas Artes, inaugurado en 1910 para el centenario de la independencia.',
+		curiosity: 'La estación contiene arte contemporáneo en sus muros, dialogando con el museo en superficie.',
+		isTransfer: false,
+		isTerminal: false,
+		isAccessible: true,
+		sources: ['wikipedia-l5', 'gemini-origen']
+	},
+	{
+		id: 'parque-bustamante',
+		name: 'Parque Bustamante',
+		coordinates: [-70.6312, -33.4401],
+		lines: ['L5'],
+		inauguratedAt: '1997-04-05',
+		commune: 'Providencia',
+		history: 'Parte del tramo original de L5 (1997). Se integra al parque sirviendo como acceso recreativo.',
+		nameOrigin:
+			'Por el parque urbano que lleva el nombre del General José Antonio Bustamante, militar de la guerra de independencia.',
+		isTransfer: false,
+		isTerminal: false,
+		isAccessible: true,
+		sources: ['wikipedia-l5', 'gemini-origen']
+	},
+	{
+		id: 'santa-isabel',
+		name: 'Santa Isabel',
+		coordinates: [-70.6234, -33.4445],
+		lines: ['L5'],
+		inauguratedAt: '1997-04-05',
+		commune: 'Santiago/Providencia',
+		history: 'Parte del tramo original de L5 (1997).',
+		nameOrigin:
+			'Por la Avenida Santa Isabel, nombre religioso tradicional que cruza Providencia y Santiago.',
+		isTransfer: false,
+		isTerminal: false,
+		isAccessible: true,
+		sources: ['wikipedia-l5', 'gemini-origen']
+	},
+	{
+		id: 'nuble',
+		name: 'Ñuble',
+		coordinates: [-70.6156, -33.4512],
+		lines: ['L5', 'L6'],
+		inauguratedAt: '1997-04-05',
+		commune: 'Ñuñoa',
+		history: 'Combinación entre L5 y L6.',
+		nameOrigin:
+			'Nombre de la calle y de la región del sur de Chile, siguiendo la nomenclatura geográfica típica de los barrios de clase media surgidos en el siglo XX.',
+		isTransfer: true,
+		isTerminal: false,
+		isAccessible: true,
+		sources: ['wikipedia-l5', 'wikipedia-l6']
+	},
+	{
+		id: 'rodrigo-de-araya',
+		name: 'Rodrigo de Araya',
+		coordinates: [-70.6089, -33.4567],
+		lines: ['L5'],
+		inauguratedAt: '1997-04-05',
+		commune: 'Macul',
+		history: 'Parte del tramo original de L5 (1997).',
+		nameOrigin:
+			'Rodrigo de Araya fue un conquistador español y uno de los primeros regidores del cabildo de Santiago. Se dice que sus tierras abarcaban esta zona y donó los terrenos para la primera ermita de la Virgen de Monserrat.',
+		isTransfer: false,
+		isTerminal: false,
+		isAccessible: true,
+		sources: ['wikipedia-l5', 'gemini-origen']
+	},
+	{
+		id: 'carlos-valdovinos',
+		name: 'Carlos Valdovinos',
+		coordinates: [-70.6034, -33.4623],
+		lines: ['L5'],
+		inauguratedAt: '1997-04-05',
+		commune: 'Macul',
+		history: 'Parte del tramo original de L5 (1997).',
+		nameOrigin:
+			'Político y abogado radical, alcalde de San Miguel. La avenida lleva su nombre en reconocimiento a su labor local.',
+		isTransfer: false,
+		isTerminal: false,
+		isAccessible: true,
+		sources: ['wikipedia-l5', 'gemini-origen']
+	},
+	{
+		id: 'camino-agricola',
+		name: 'Camino Agrícola',
+		coordinates: [-70.5978, -33.4689],
+		lines: ['L5'],
+		inauguratedAt: '1997-04-05',
+		commune: 'Macul',
+		history: 'Parte del tramo original de L5 (1997).',
+		nameOrigin:
+			'Evoca el pasado rural y educativo de la zona, que albergaba la Escuela de Agricultura de la Universidad de Chile (hoy Campus Antumapu). El "camino" era la ruta utilizada por estudiantes y trabajadores agrícolas.',
+		isTransfer: false,
+		isTerminal: false,
+		isAccessible: true,
+		sources: ['wikipedia-l5', 'gemini-origen']
+	},
+	{
+		id: 'san-joaquin',
+		name: 'San Joaquín',
+		coordinates: [-70.5923, -33.4756],
+		lines: ['L5'],
+		inauguratedAt: '1997-04-05',
+		commune: 'San Joaquín',
+		history: 'Parte del tramo original de L5 (1997). Sirve al campus homónimo de la PUC.',
+		nameOrigin:
+			'Por la comuna de San Joaquín y el campus homónimo de la Pontificia Universidad Católica de Chile.',
+		isTransfer: false,
+		isTerminal: false,
+		isAccessible: true,
+		sources: ['wikipedia-l5', 'gemini-origen']
+	},
+	{
+		id: 'pedrero',
+		name: 'Pedrero',
+		coordinates: [-70.5867, -33.4823],
+		lines: ['L5'],
+		inauguratedAt: '1997-04-05',
+		commune: 'Macul',
+		history: 'Parte del tramo original de L5 (1997). Sirve al Estadio Monumental de Colo-Colo.',
+		nameOrigin:
+			'Referencia al Camino del Pedrero, una ruta antigua caracterizada por su suelo pedregoso, producto de las crecidas del Zanjón de la Aguada.',
+		isTransfer: false,
+		isTerminal: false,
+		isAccessible: true,
+		sources: ['wikipedia-l5', 'gemini-origen']
 	},
 	{
 		id: 'mirador',
@@ -1186,7 +1489,7 @@ export const stations: Station[] = [
 		commune: 'La Florida',
 		history:
 			'Estación elevada sobre viaducto con arquitectura de acero y vidrio, ofreciendo vistas panorámicas de la Cordillera de los Andes.',
-		nameOrigin: 'Por las vistas panorámicas que ofrece desde el viaducto elevado.',
+		nameOrigin: 'Por las vistas panorámicas que ofrece desde el viaducto elevado y el barrio "El Mirador".',
 		isTransfer: false,
 		isTerminal: false,
 		isAccessible: true,
@@ -1200,7 +1503,7 @@ export const stations: Station[] = [
 		inauguratedAt: '1997-04-05',
 		commune: 'La Florida',
 		history:
-			'Estación elevada que sirve a la populosa comuna de La Florida, con arquitectura moderna de acero y vidrio.',
+			'Estación intermodal clave. Combina el nombre de la comuna (La Florida, llamada así por la abundancia de flores silvestres en sus orígenes rurales) con un nombre de fantasía residencial ("Bellavista").',
 		nameOrigin: 'Por el sector Bellavista de la comuna de La Florida.',
 		isTransfer: false,
 		isTerminal: false,
@@ -1217,12 +1520,380 @@ export const stations: Station[] = [
 		history:
 			'Nodo triple de combinación entre L4, L4A y L5. Una de las estaciones más complejas del sistema.',
 		nameOrigin:
-			'Homenajea a Vicente Valdés Freire, empresario y político chileno, dueño de terrenos en el sector.',
+			'Vicente Valdés fue un importante agricultor y propietario de tierras en la zona de La Florida a finales del siglo XIX. La estación se ubica en los terrenos que fueron parte de su fundo.',
 		dailyPassengers: 65000,
 		isTransfer: true,
 		isTerminal: false,
 		isAccessible: true,
 		sources: ['wikipedia-l5', 'wikipedia-l4']
+	},
+
+	// ===== LÍNEA 4 (AZUL) =====
+	{
+		id: 'cristobal-colon',
+		name: 'Cristóbal Colón',
+		coordinates: [-70.5878, -33.4178],
+		lines: ['L4'],
+		inauguratedAt: '2005-11-30',
+		commune: 'Las Condes',
+		history: 'Parte del tramo inaugural de L4 (2005).',
+		nameOrigin:
+			'Por la avenida que homenajea a Cristóbal Colón (1451-1506), navegante genovés que llegó a América en 1492.',
+		isTransfer: false,
+		isTerminal: false,
+		isAccessible: true,
+		sources: ['wikipedia-l4']
+	},
+	{
+		id: 'francisco-bilbao',
+		name: 'Francisco Bilbao',
+		coordinates: [-70.5823, -33.4234],
+		lines: ['L4'],
+		inauguratedAt: '2005-11-30',
+		commune: 'Las Condes',
+		history: 'Parte del tramo inaugural de L4 (2005).',
+		nameOrigin:
+			'Por Francisco Bilbao Barquín (1823-1865), escritor y filósofo liberal chileno, fundador de la "Sociedad de la Igualdad" y crítico de la iglesia y el conservadurismo.',
+		isTransfer: false,
+		isTerminal: false,
+		isAccessible: true,
+		sources: ['wikipedia-l4', 'gemini-origen']
+	},
+	{
+		id: 'principe-de-gales',
+		name: 'Príncipe de Gales',
+		coordinates: [-70.5767, -33.4289],
+		lines: ['L4'],
+		inauguratedAt: '2005-11-30',
+		commune: 'La Reina',
+		history: 'Parte del tramo inaugural de L4 (2005).',
+		nameOrigin:
+			'Por el Prince of Wales Country Club, exclusivo club de campo fundado por la colonia británica en 1925, cuyos terrenos colindan con la estación.',
+		isTransfer: false,
+		isTerminal: false,
+		isAccessible: true,
+		sources: ['wikipedia-l4', 'gemini-origen']
+	},
+	{
+		id: 'simon-bolivar',
+		name: 'Simón Bolívar',
+		coordinates: [-70.5712, -33.4345],
+		lines: ['L4'],
+		inauguratedAt: '2005-11-30',
+		commune: 'La Reina',
+		history: 'Parte del tramo inaugural de L4 (2005).',
+		nameOrigin:
+			'Por Simón Bolívar (1783-1830), el Libertador, líder de la independencia de Venezuela, Colombia, Ecuador, Perú y Bolivia.',
+		isTransfer: false,
+		isTerminal: false,
+		isAccessible: true,
+		sources: ['wikipedia-l4', 'gemini-origen']
+	},
+	{
+		id: 'los-orientales',
+		name: 'Los Orientales',
+		coordinates: [-70.5656, -33.4401],
+		lines: ['L4'],
+		inauguratedAt: '2005-11-30',
+		commune: 'La Reina',
+		history: 'Parte del tramo inaugural de L4 (2005).',
+		nameOrigin: 'Por la Avenida Los Orientales que cruza el anillo de Américo Vespucio.',
+		isTransfer: false,
+		isTerminal: false,
+		isAccessible: true,
+		sources: ['wikipedia-l4']
+	},
+	{
+		id: 'grecia',
+		name: 'Grecia',
+		coordinates: [-70.5634, -33.4478],
+		lines: ['L4'],
+		inauguratedAt: '2005-11-30',
+		commune: 'Ñuñoa/Peñalolén',
+		history:
+			'Parte del tramo inaugural de L4 (2005). Sirve al sector del Estadio Nacional y a la comunidad griega de Santiago.',
+		nameOrigin:
+			'Por la Avenida Grecia, nombrada en honor a la República Helénica y la influencia cultural griega.',
+		isTransfer: false,
+		isTerminal: false,
+		isAccessible: true,
+		sources: ['wikipedia-l4', 'gemini-origen']
+	},
+	{
+		id: 'los-presidentes',
+		name: 'Los Presidentes',
+		coordinates: [-70.5612, -33.4556],
+		lines: ['L4'],
+		inauguratedAt: '2005-11-30',
+		commune: 'Ñuñoa',
+		history: 'Parte del tramo inaugural de L4 (2005).',
+		nameOrigin:
+			'Por la Avenida Los Presidentes, que recuerda a los mandatarios de la nación.',
+		isTransfer: false,
+		isTerminal: false,
+		isAccessible: true,
+		sources: ['wikipedia-l4']
+	},
+	{
+		id: 'quilin',
+		name: 'Quilín',
+		coordinates: [-70.5589, -33.4634],
+		lines: ['L4'],
+		inauguratedAt: '2005-11-30',
+		commune: 'Peñalolén',
+		history: 'Parte del tramo inaugural de L4 (2005).',
+		nameOrigin:
+			'Nombre de origen mapuche (Küla = tres, Lin = paja). El término se asocia al Parlamento de Quilín (1641), un tratado de paz entre la corona española y el pueblo mapuche.',
+		isTransfer: false,
+		isTerminal: false,
+		isAccessible: true,
+		sources: ['wikipedia-l4', 'gemini-origen']
+	},
+	{
+		id: 'las-torres',
+		name: 'Las Torres',
+		coordinates: [-70.5567, -33.4712],
+		lines: ['L4'],
+		inauguratedAt: '2005-11-30',
+		commune: 'Peñalolén',
+		history: 'Parte del tramo inaugural de L4 (2005).',
+		nameOrigin:
+			'Por la línea de torres de alta tensión que corre paralela a la autopista Vespucio Sur.',
+		isTransfer: false,
+		isTerminal: false,
+		isAccessible: true,
+		sources: ['wikipedia-l4', 'gemini-origen']
+	},
+	{
+		id: 'macul',
+		name: 'Macul',
+		coordinates: [-70.5598, -33.4789],
+		lines: ['L4'],
+		inauguratedAt: '2005-11-30',
+		commune: 'Macul',
+		history:
+			'Parte del tramo inaugural de L4 (2005). Sirve al centro de la comuna de Macul.',
+		nameOrigin:
+			'Por la comuna de Macul, de origen mapudungun (Makul), que puede significar "juramento" o "promesa". La zona es tradicionalmente vitivinícola (Viña Cousiño Macul).',
+		isTransfer: false,
+		isTerminal: false,
+		isAccessible: true,
+		sources: ['wikipedia-l4', 'gemini-origen']
+	},
+	{
+		id: 'vicuna-mackenna',
+		name: 'Vicuña Mackenna',
+		coordinates: [-70.5912, -33.4834],
+		lines: ['L4', 'L4A'],
+		inauguratedAt: '2005-11-30',
+		commune: 'La Florida',
+		history: 'Combinación entre L4 y L4A. Importante nodo de transporte del sur oriente.',
+		nameOrigin:
+			'Por Benjamín Vicuña Mackenna (1831-1886), el intendente de Santiago más influyente de la historia (1872-1875), que transformó la ciudad de una villa colonial a una urbe afrancesada.',
+		isTransfer: true,
+		isTerminal: false,
+		isAccessible: true,
+		sources: ['wikipedia-l4', 'gemini-origen']
+	},
+	{
+		id: 'rojas-magallanes',
+		name: 'Rojas Magallanes',
+		coordinates: [-70.5945, -33.4912],
+		lines: ['L4'],
+		inauguratedAt: '2005-11-30',
+		commune: 'La Florida',
+		history: 'Parte del tramo inaugural de L4 (2005).',
+		nameOrigin: 'Por la calle Rojas Magallanes que cruza la avenida Vicuña Mackenna.',
+		isTransfer: false,
+		isTerminal: false,
+		isAccessible: true,
+		sources: ['wikipedia-l4']
+	},
+	{
+		id: 'trinidad',
+		name: 'Trinidad',
+		coordinates: [-70.5967, -33.4989],
+		lines: ['L4'],
+		inauguratedAt: '2005-11-30',
+		commune: 'La Florida',
+		history: 'Parte del tramo inaugural de L4 (2005).',
+		nameOrigin:
+			'Por la calle Trinidad, que evoca el concepto religioso de la Santísima Trinidad.',
+		isTransfer: false,
+		isTerminal: false,
+		isAccessible: true,
+		sources: ['wikipedia-l4', 'gemini-origen']
+	},
+	{
+		id: 'san-jose-de-la-estrella',
+		name: 'San José de la Estrella',
+		coordinates: [-70.5989, -33.5067],
+		lines: ['L4'],
+		inauguratedAt: '2009-08-01',
+		commune: 'La Florida',
+		history:
+			'Originalmente descartada del plan maestro, fue construida tras intensas protestas vecinales. Inaugurada en 2009, años después del resto del tramo.',
+		nameOrigin: 'Por la calle San José de la Estrella que cruza Vicuña Mackenna.',
+		curiosity:
+			'Fue agregada al proyecto original gracias a la presión ciudadana, que consideraba excesiva la distancia entre estaciones.',
+		isTransfer: false,
+		isTerminal: false,
+		isAccessible: true,
+		sources: ['wikipedia-l4', 'gemini-origen']
+	},
+	{
+		id: 'los-quillayes',
+		name: 'Los Quillayes',
+		coordinates: [-70.6012, -33.5145],
+		lines: ['L4'],
+		inauguratedAt: '2005-11-30',
+		commune: 'La Florida',
+		history: 'Parte del tramo inaugural de L4 (2005).',
+		nameOrigin:
+			'Hace referencia a la flora nativa esclerófila (el Quillay, Quillaja saponaria) y a los antiguos fundos de la zona que conservaban bosquetes de esta especie.',
+		isTransfer: false,
+		isTerminal: false,
+		isAccessible: true,
+		sources: ['wikipedia-l4', 'gemini-origen']
+	},
+	{
+		id: 'elisa-correa',
+		name: 'Elisa Correa',
+		coordinates: [-70.6034, -33.5223],
+		lines: ['L4'],
+		inauguratedAt: '2005-11-30',
+		commune: 'Puente Alto',
+		history: 'Parte del tramo inaugural de L4 (2005).',
+		nameOrigin:
+			'Por Elisa Correa Sanfuentes, aristócrata y propietaria de tierras en la zona, esposa de un influyente político. Ejemplo de cómo los nombres de latifundistas perduran en la geografía urbana.',
+		isTransfer: false,
+		isTerminal: false,
+		isAccessible: true,
+		sources: ['wikipedia-l4', 'gemini-origen']
+	},
+	{
+		id: 'hospital-sotero-del-rio',
+		name: 'Hospital Sótero del Río',
+		coordinates: [-70.6056, -33.5301],
+		lines: ['L4'],
+		inauguratedAt: '2005-11-30',
+		commune: 'Puente Alto',
+		history:
+			'Parte del tramo inaugural de L4 (2005). Sirve al complejo hospitalario más importante del sur oriente de Santiago.',
+		nameOrigin:
+			'Por el Dr. Sótero del Río Gundián (1880-1969), destacado médico cirujano y Ministro de Salud en varios gobiernos, artífice de la expansión de la salud pública en Chile.',
+		isTransfer: false,
+		isTerminal: false,
+		isAccessible: true,
+		sources: ['wikipedia-l4', 'gemini-origen']
+	},
+	{
+		id: 'protectora-de-la-infancia',
+		name: 'Protectora de la Infancia',
+		coordinates: [-70.6078, -33.5378],
+		lines: ['L4'],
+		inauguratedAt: '2005-11-30',
+		commune: 'Puente Alto',
+		history: 'Parte del tramo inaugural de L4 (2005).',
+		nameOrigin:
+			'Por la Sociedad Protectora de la Infancia, institución benéfica fundada en 1894 que mantiene una sede histórica, colegios y hogares en el sector.',
+		isTransfer: false,
+		isTerminal: false,
+		isAccessible: true,
+		sources: ['wikipedia-l4', 'gemini-origen']
+	},
+	{
+		id: 'las-mercedes',
+		name: 'Las Mercedes',
+		coordinates: [-70.61, -33.5456],
+		lines: ['L4'],
+		inauguratedAt: '2005-11-30',
+		commune: 'Puente Alto',
+		history: 'Parte del tramo inaugural de L4 (2005).',
+		nameOrigin:
+			'Por la antigua Viña Las Mercedes y la devoción a la Virgen de la Merced. Puente Alto y Pirque fueron zonas de grandes haciendas vitivinícolas.',
+		isTransfer: false,
+		isTerminal: false,
+		isAccessible: true,
+		sources: ['wikipedia-l4', 'gemini-origen']
+	},
+	{
+		id: 'plaza-de-puente-alto',
+		name: 'Plaza de Puente Alto',
+		coordinates: [-70.6123, -33.5534],
+		lines: ['L4'],
+		inauguratedAt: '2005-11-30',
+		commune: 'Puente Alto',
+		history:
+			'Terminal sur de L4. Sirve a Puente Alto, la comuna más poblada de Chile.',
+		nameOrigin:
+			'Por la plaza de armas de Puente Alto. El nombre "Puente Alto" refiere a un antiguo puente de ladrillo construido sobre el canal Eyzaguirre en el siglo XIX.',
+		isTransfer: false,
+		isTerminal: true,
+		isAccessible: true,
+		sources: ['wikipedia-l4', 'gemini-origen']
+	},
+
+	// ===== LÍNEA 4A (CELESTE) =====
+	{
+		id: 'santa-julia',
+		name: 'Santa Julia',
+		coordinates: [-70.6234, -33.5123],
+		lines: ['L4A'],
+		inauguratedAt: '2006-08-16',
+		commune: 'Macul',
+		history: 'Parte del tramo inaugural de L4A (2006).',
+		nameOrigin:
+			'Por la población y avenida Santa Julia, típica de la expansión residencial de mediados del siglo XX.',
+		isTransfer: false,
+		isTerminal: false,
+		isAccessible: true,
+		sources: ['wikipedia-l4a', 'gemini-origen']
+	},
+	{
+		id: 'la-granja',
+		name: 'La Granja',
+		coordinates: [-70.6289, -33.5189],
+		lines: ['L4A'],
+		inauguratedAt: '2006-08-16',
+		commune: 'La Granja',
+		history: 'Parte del tramo inaugural de L4A (2006). Sirve al centro de la comuna.',
+		nameOrigin:
+			'Por la comuna de La Granja, cuyo nombre recuerda a la comunidad religiosa franciscana que tenía una granja en la zona.',
+		isTransfer: false,
+		isTerminal: false,
+		isAccessible: true,
+		sources: ['wikipedia-l4a', 'gemini-origen']
+	},
+	{
+		id: 'san-ramon',
+		name: 'San Ramón',
+		coordinates: [-70.6345, -33.5256],
+		lines: ['L4A'],
+		inauguratedAt: '2006-08-16',
+		commune: 'San Ramón',
+		history: 'Parte del tramo inaugural de L4A (2006). Sirve al centro de la comuna.',
+		nameOrigin:
+			'Por la comuna de San Ramón, nombrada en honor a San Ramón Nonato, santo patrono de las parturientas.',
+		isTransfer: false,
+		isTerminal: false,
+		isAccessible: true,
+		sources: ['wikipedia-l4a', 'gemini-origen']
+	},
+	{
+		id: 'santa-rosa',
+		name: 'Santa Rosa',
+		coordinates: [-70.6401, -33.5323],
+		lines: ['L4A'],
+		inauguratedAt: '2006-08-16',
+		commune: 'La Pintana',
+		history: 'Parte del tramo inaugural de L4A (2006).',
+		nameOrigin:
+			'Por la Avenida Santa Rosa, eje vial que corre paralelo a Vicuña Mackenna y Gran Avenida. Es el antiguo "Camino de cintura" hacia el sur.',
+		isTransfer: false,
+		isTerminal: false,
+		isAccessible: true,
+		sources: ['wikipedia-l4a', 'gemini-origen']
 	},
 
 	// ===== LÍNEA 6 (VIOLETA) =====
@@ -1233,13 +1904,48 @@ export const stations: Station[] = [
 		lines: ['L6'],
 		inauguratedAt: '2017-11-02',
 		commune: 'Cerrillos',
-		history: 'Terminal sur de la Línea 6, primera línea completamente automática de Chile.',
+		history:
+			'Terminal poniente de L6, primera línea completamente automática de Chile. Ubicada en los terrenos del ex Aeropuerto de Los Cerrillos (1929-2006).',
 		nameOrigin:
-			'Por la comuna de Cerrillos, cuyo nombre proviene de los pequeños cerros que existían en la zona.',
+			'Por la comuna de Cerrillos, cuyo nombre proviene de los pequeños cerros que existían en la zona. El edificio alberga el Centro Nacional de Arte Contemporáneo.',
+		pictogram: 'Un avión, evocando la historia de la aviación chilena.',
 		isTransfer: false,
 		isTerminal: true,
 		isAccessible: true,
-		sources: ['wikipedia-l6']
+		sources: ['wikipedia-l6', 'gemini-origen']
+	},
+	{
+		id: 'lo-valledor',
+		name: 'Lo Valledor',
+		coordinates: [-70.6912, -33.4856],
+		lines: ['L6'],
+		inauguratedAt: '2017-11-02',
+		commune: 'Pedro Aguirre Cerda',
+		history:
+			'Parte del tramo inaugural de L6 (2017). Sirve al mercado mayorista más importante de la capital.',
+		nameOrigin:
+			'Por el mercado mayorista Lo Valledor, el principal centro de abastecimiento de frutas y verduras de Santiago, creado en 1968.',
+		isTransfer: false,
+		isTerminal: false,
+		isAccessible: true,
+		sources: ['wikipedia-l6', 'gemini-origen']
+	},
+	{
+		id: 'presidente-pedro-aguirre-cerda',
+		name: 'Presidente Pedro Aguirre Cerda',
+		coordinates: [-70.6756, -33.4789],
+		lines: ['L6'],
+		inauguratedAt: '2017-11-02',
+		commune: 'Pedro Aguirre Cerda',
+		formerName: 'Club Hípico (nombre preliminar)',
+		history:
+			'Parte del tramo inaugural de L6 (2017). Originalmente llamada "Club Hípico", fue renombrada para honrar a la comuna y al mandatario.',
+		nameOrigin:
+			'Por Pedro Aguirre Cerda (1879-1941), presidente de Chile (1938-1941) cuyo lema fue "Gobernar es educar". Impulsó la industrialización (CORFO) y la educación pública.',
+		isTransfer: false,
+		isTerminal: false,
+		isAccessible: true,
+		sources: ['wikipedia-l6', 'gemini-origen']
 	},
 	{
 		id: 'bio-bio',
@@ -1248,13 +1954,50 @@ export const stations: Station[] = [
 		lines: ['L6'],
 		inauguratedAt: '2017-11-02',
 		commune: 'Santiago',
-		history: 'Estación que sirve al histórico barrio Franklin y sector Bío Bío, famoso por su persa.',
+		history:
+			'Estación que sirve al histórico barrio Franklin y sector Bío Bío, famoso por el Persa Bío Bío, inmenso mercado de antigüedades y curiosidades.',
 		nameOrigin:
-			'Por el barrio histórico, pero evoca al río y la onomatopeya mapuche del canto del pájaro fío-fío.',
+			'Por el barrio histórico y la calle Bío Bío. El nombre evoca al río del sur de Chile, cuya denominación proviene de la onomatopeya mapuche del canto del pájaro fío-fío.',
 		isTransfer: false,
 		isTerminal: false,
 		isAccessible: true,
-		sources: ['wikipedia-l6']
+		sources: ['wikipedia-l6', 'gemini-origen']
+	},
+	{
+		id: 'estadio-nacional',
+		name: 'Estadio Nacional',
+		coordinates: [-70.6112, -33.4656],
+		lines: ['L6'],
+		inauguratedAt: '2017-11-02',
+		commune: 'Ñuñoa',
+		history:
+			'Ubicada frente al coliseo deportivo más importante del país. Lugar de memoria dual: glorias deportivas (Mundial 1962, Copa América 2015) y tragedias (centro de detención en 1973).',
+		nameOrigin:
+			'Por el Estadio Nacional Julio Martínez Prádanos, principal recinto deportivo de Chile con capacidad para más de 48.000 espectadores.',
+		curiosity:
+			'La estación y su entorno incluyen sitios de memoria preservados que conmemoran a las víctimas de la dictadura.',
+		isTransfer: false,
+		isTerminal: false,
+		isAccessible: true,
+		sources: ['wikipedia-l6', 'gemini-origen']
+	},
+	{
+		id: 'ines-de-suarez',
+		name: 'Inés de Suárez',
+		coordinates: [-70.6089, -33.4534],
+		lines: ['L6'],
+		inauguratedAt: '2017-11-02',
+		commune: 'Providencia',
+		history:
+			'Parte del tramo inaugural de L6 (2017). Ubicada cerca del parque homónimo en Providencia.',
+		nameOrigin:
+			'Homenaje a Inés de Suárez (c. 1507-1580), la primera mujer española en llegar a Chile, compañera de Pedro de Valdivia y figura clave en la defensa de Santiago durante el asalto indígena de 1541.',
+		curiosity:
+			'Inés de Suárez es una de las pocas mujeres de la conquista que ha sido homenajeada con una estación de metro.',
+		isTransfer: false,
+		isTerminal: false,
+		isAccessible: true,
+		sources: ['wikipedia-l6', 'gemini-origen']
 	}
 ];
 

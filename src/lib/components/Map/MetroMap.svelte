@@ -421,7 +421,7 @@
 				// Crear iconos de tren rectangulares (orientados paralelos a la línea)
 				for (const { id, color } of trainColors) {
 					const size = 40;
-					const width = size * 0.4; // Ancho del tren
+					const width = size * 0.55; // Ancho del tren
 					const height = size * 0.9; // Largo del tren (en dirección de movimiento)
 					const canvas = document.createElement('canvas');
 					canvas.width = size;
