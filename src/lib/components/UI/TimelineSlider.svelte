@@ -136,7 +136,7 @@
 	});
 </script>
 
-<div class="timeline-container glass rounded-xl border border-[var(--border-light)] p-3 shadow-[var(--shadow-md)]">
+<div class="timeline-container glass rounded-2xl border border-[var(--border-light)] p-4 shadow-[var(--shadow-md)]">
 	<!-- Header con fecha actual y controles -->
 	<div class="mb-3 flex items-center justify-between">
 		<div class="flex items-center gap-2">
@@ -208,7 +208,7 @@
 		<!-- Slider -->
 		<div class="relative mt-4 pt-2">
 			<!-- Track background con hitos -->
-			<div class="absolute left-0 right-0 top-1/2 h-1.5 -translate-y-1/2 rounded-full bg-[var(--bg-accent)]">
+			<div class="absolute left-0 right-0 top-1/2 h-3 -translate-y-1/2 rounded-full bg-[var(--bg-accent)]">
 				<!-- Progreso -->
 				<div
 					class="absolute left-0 top-0 h-full rounded-full bg-gradient-to-r from-[var(--metro-l1)] to-[var(--metro-l5)]"
@@ -219,7 +219,7 @@
 			<!-- Marcadores de líneas -->
 			{#each milestones as milestone (milestone.id)}
 				<div
-					class="absolute top-1/2 h-3 w-3 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-white shadow-sm transition-transform hover:scale-125"
+					class="absolute top-1/2 h-4 w-4 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-white shadow-sm transition-transform hover:scale-125"
 					style="left: {milestone.position}%; background-color: {milestone.color}"
 					title="{milestone.name}: {milestone.date.getFullYear()}"
 				></div>
@@ -233,7 +233,7 @@
 				step="0.1"
 				value={sliderValue}
 				oninput={handleSliderChange}
-				class="timeline-slider relative z-10 h-6 w-full cursor-pointer appearance-none bg-transparent"
+				class="timeline-slider relative z-10 h-8 w-full cursor-pointer appearance-none bg-transparent"
 			/>
 		</div>
 	</div>
@@ -260,13 +260,13 @@
 	.timeline-slider::-webkit-slider-thumb {
 		-webkit-appearance: none;
 		appearance: none;
-		width: 18px;
-		height: 18px;
+		width: 24px;
+		height: 24px;
 		border-radius: 50%;
 		background: var(--metro-l1);
 		cursor: pointer;
 		border: 3px solid white;
-		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+		box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
 		transition: transform 0.15s ease;
 	}
 
@@ -275,22 +275,22 @@
 	}
 
 	.timeline-slider::-moz-range-thumb {
-		width: 18px;
-		height: 18px;
+		width: 24px;
+		height: 24px;
 		border-radius: 50%;
 		background: var(--metro-l1);
 		cursor: pointer;
 		border: 3px solid white;
-		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+		box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
 	}
 
 	.timeline-slider::-webkit-slider-runnable-track {
-		height: 6px;
+		height: 12px;
 		background: transparent;
 	}
 
 	.timeline-slider::-moz-range-track {
-		height: 6px;
+		height: 12px;
 		background: transparent;
 	}
 </style>
