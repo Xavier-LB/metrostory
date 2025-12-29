@@ -5,6 +5,7 @@
 	import StationPanel from '$lib/components/Station/StationPanel.svelte';
 	import LinePanel from '$lib/components/Line/LinePanel.svelte';
 	import { memoria2024, expansionProjects, formatNumber } from '$lib/data/memoria2024';
+	import { isLoading } from '$lib/stores/loading';
 
 	let selectedStation = $state<Station | null>(null);
 	let selectedLine = $state<MetroLine | null>(null);
@@ -75,9 +76,15 @@
 		</div>
 
 		<!-- Header - Metro identity -->
-		<header class="animate-slide-up absolute left-4 top-4 z-20 md:left-8 md:top-8">
-			<!-- Logo -->
-			<img src="/logo.svg" alt="MetroStory" class="h-14 w-auto opacity-90 md:h-20" />
+		<header class="absolute left-4 top-4 z-20 md:left-8 md:top-8">
+			<!-- Logo - hidden during loading animation, fades in after -->
+			<img
+				src="/logo.svg"
+				alt="MetroStory"
+				class="h-14 w-auto transition-opacity duration-300 md:h-20"
+				class:opacity-0={$isLoading}
+				class:opacity-90={!$isLoading}
+			/>
 		</header>
 
 		<!-- Line Legend - Hidden on mobile, shown on md+ -->

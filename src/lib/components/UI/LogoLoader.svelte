@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
+
 	interface Props {
 		size?: number;
 		duration?: number;
@@ -6,18 +8,31 @@
 
 	let { size = 200, duration = 2.5 }: Props = $props();
 
+	let mounted = $state(false);
+
 	const paths = [
-		{ d: "M1372 963L1401.18 934.654C1404.91 931.028 1409.91 929 1415.11 929L1647.72 929C1653.02 929 1658.11 926.893 1661.86 923.142L1715.14 869.858C1718.89 866.107 1723.98 864 1729.28 864L2151 864C2162.05 864 2171 855.046 2171 844L2171 490.284C2171 484.98 2168.89 479.893 2165.14 476.142L2128 439", color: "#9A3488", name: "Línea 7" },
-		{ d: "M2308 1301L2075.83 1067.85C2072.1 1064.1 2070 1059.03 2070 1053.74L2070 929.284C2070 923.98 2067.89 918.893 2064.14 915.142L1998.86 849.858C1995.11 846.107 1993 841.02 1993 835.716L1993 598.284C1993 592.98 1990.89 587.893 1987.14 584.142L1934.86 531.858C1931.11 528.107 1926.02 526 1920.72 526L1516.28 526C1510.98 526 1505.89 523.893 1502.14 520.142L1477.86 495.858C1474.11 492.107 1469.02 490 1463.72 490L1080 490C1068.95 490 1060 498.954 1060 510L1060 915.716C1060 921.02 1057.89 926.107 1054.14 929.858L938.858 1045.14C935.107 1048.89 933 1053.98 933 1059.28L933 1261", color: "#179859", name: "Línea 8" },
-		{ d: "M2167 402L2352.14 587.142C2355.89 590.893 2358 595.98 2358 601.284L2358 1151.72C2358 1157.02 2355.89 1162.11 2352.14 1165.86L2309.86 1208.14C2306.11 1211.89 2304 1216.98 2304 1222.28L2304 1288.72C2304 1294.02 2306.11 1299.11 2309.86 1302.86L2352.14 1345.14C2355.89 1348.89 2358 1353.98 2358 1359.28L2358 1901", color: "#2D2B73", name: "Línea 5" },
-		{ d: "M1371 68L1597.72 68C1603.02 68 1608.11 70.1071 1611.86 73.8579L1792.14 254.142C1795.89 257.893 1798 262.98 1798 268.284L1798 752.5C1798 763.546 1806.95 772.5 1818 772.5L2452 772.5", color: "#6B2C15", name: "Línea 3" },
-		{ d: "M1898 95V436C1898 447.046 1889.05 456 1878 456H1722C1710.95 456 1702 464.954 1702 476V811.716C1702 817.02 1704.11 822.107 1707.86 825.858L1792.14 910.142C1795.89 913.893 1798 918.98 1798 924.284V1741", color: "#FAB515", name: "Línea 4" },
+		{ d: "M1372 963L1401.18 934.654C1404.91 931.028 1409.91 929 1415.11 929L1647.72 929C1653.02 929 1658.11 926.893 1661.86 923.142L1715.14 869.858C1718.89 866.107 1723.98 864 1729.28 864L2151 864C2162.05 864 2171 855.046 2171 844L2171 490.284C2171 484.98 2168.89 479.893 2165.14 476.142L2128 439", color: "#9A3488", name: "L7" },
+		{ d: "M2308 1301L2075.83 1067.85C2072.1 1064.1 2070 1059.03 2070 1053.74L2070 929.284C2070 923.98 2067.89 918.893 2064.14 915.142L1998.86 849.858C1995.11 846.107 1993 841.02 1993 835.716L1993 598.284C1993 592.98 1990.89 587.893 1987.14 584.142L1934.86 531.858C1931.11 528.107 1926.02 526 1920.72 526L1516.28 526C1510.98 526 1505.89 523.893 1502.14 520.142L1477.86 495.858C1474.11 492.107 1469.02 490 1463.72 490L1080 490C1068.95 490 1060 498.954 1060 510L1060 915.716C1060 921.02 1057.89 926.107 1054.14 929.858L938.858 1045.14C935.107 1048.89 933 1053.98 933 1059.28L933 1261", color: "#179859", name: "L8" },
+		{ d: "M2167 402L2352.14 587.142C2355.89 590.893 2358 595.98 2358 601.284L2358 1151.72C2358 1157.02 2355.89 1162.11 2352.14 1165.86L2309.86 1208.14C2306.11 1211.89 2304 1216.98 2304 1222.28L2304 1288.72C2304 1294.02 2306.11 1299.11 2309.86 1302.86L2352.14 1345.14C2355.89 1348.89 2358 1353.98 2358 1359.28L2358 1901", color: "#2D2B73", name: "L5" },
+		{ d: "M1371 68L1597.72 68C1603.02 68 1608.11 70.1071 1611.86 73.8579L1792.14 254.142C1795.89 257.893 1798 262.98 1798 268.284L1798 752.5C1798 763.546 1806.95 772.5 1818 772.5L2452 772.5", color: "#6B2C15", name: "L3" },
+		{ d: "M1898 95V436C1898 447.046 1889.05 456 1878 456H1722C1710.95 456 1702 464.954 1702 476V811.716C1702 817.02 1704.11 822.107 1707.86 825.858L1792.14 910.142C1795.89 913.893 1798 918.98 1798 924.284V1741", color: "#FAB515", name: "L4" },
 	];
 
 	const staggerDelay = $derived(duration / (paths.length + 2));
+
+	onMount(() => {
+		// Small delay to ensure CSS is ready
+		requestAnimationFrame(() => {
+			mounted = true;
+		});
+	});
 </script>
 
-<div class="loader" style="--size: {size}px; --duration: {duration}s; --stagger: {staggerDelay}s;">
+<div
+	class="loader"
+	class:animate={mounted}
+	style="--size: {size}px; --duration: {duration}s; --stagger: {staggerDelay}s;"
+>
 	<svg viewBox="0 0 2811 1986" fill="none" xmlns="http://www.w3.org/2000/svg">
 		<defs>
 			<clipPath id="loader-clip">
@@ -33,7 +48,7 @@
 					stroke-linecap="round"
 					fill="none"
 					class="metro-line"
-					style="--delay: {i * staggerDelay}s"
+					style="--delay: {i * staggerDelay}s; --index: {i};"
 				/>
 			{/each}
 
@@ -77,6 +92,7 @@
 <style>
 	.loader {
 		width: var(--size);
+		max-width: 100%;
 		height: auto;
 		aspect-ratio: 2811 / 1986;
 	}
@@ -86,41 +102,55 @@
 		height: 100%;
 	}
 
+	/* Hide elements initially, only animate when mounted */
 	.metro-line {
-		stroke-dasharray: 3000;
-		stroke-dashoffset: 3000;
-		animation: draw-line var(--duration) ease-out forwards;
-		animation-delay: var(--delay);
+		stroke-dasharray: 2500;
+		stroke-dashoffset: 2500;
 	}
 
 	.fade-element {
 		opacity: 0;
+	}
+
+	/* Apply animations only after mount */
+	.loader.animate .metro-line {
+		animation: draw-line var(--duration) ease-out forwards;
+		animation-delay: var(--delay);
+	}
+
+	.loader.animate .fade-element {
 		animation: fade-in calc(var(--duration) * 0.4) ease-out forwards;
 		animation-delay: var(--delay);
 	}
 
-	.metro-text {
+	.loader.animate .metro-text {
 		animation-name: fade-in-scale;
 	}
 
 	@keyframes draw-line {
+		from {
+			stroke-dashoffset: 2500;
+		}
 		to {
 			stroke-dashoffset: 0;
 		}
 	}
 
 	@keyframes fade-in {
+		from {
+			opacity: 0;
+		}
 		to {
 			opacity: 1;
 		}
 	}
 
 	@keyframes fade-in-scale {
-		0% {
+		from {
 			opacity: 0;
 			transform: scale(0.95);
 		}
-		100% {
+		to {
 			opacity: 1;
 			transform: scale(1);
 		}
