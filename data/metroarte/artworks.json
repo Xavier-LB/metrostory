@@ -1,0 +1,43 @@
+[
+	{
+		"id": "memoria-visual",
+		"title": "Memoria Visual de una Nación",
+		"artist": "Mario Toral",
+		"year": 1999,
+		"description": "Mural monumental de 1200 m² que narra la historia de Chile en dos partes: \"Pasado\" (mundo indígena, conquista, violencia) y \"Presente/Futuro\" (modernidad, poesía). Es considerada la obra cumbre del sistema Metro.",
+		"type": "mural",
+		"size": "1200 m²",
+		"location": "Zona de combinación L1-L3",
+		"stationId": "universidad-de-chile"
+	},
+	{
+		"id": "verbo-america",
+		"title": "Verbo América",
+		"artist": "Roberto Matta",
+		"year": 2000,
+		"description": "Mural de cerámica policromada que trae el surrealismo cósmico de Matta al espacio público. Originalmente destinado a una exposición itinerante, encontró su hogar definitivo en la vasta nave de Quinta Normal.",
+		"type": "ceramica",
+		"location": "Estación Quinta Normal",
+		"stationId": "quinta-normal"
+	},
+	{
+		"id": "rostros-bicentenario",
+		"title": "Rostros del Bicentenario",
+		"artist": "Guillermo Lorca",
+		"year": 2010,
+		"description": "Óleos gigantescos que retratan a chilenos anónimos y diversos, observando a los pasajeros desde las alturas, invirtiendo el rol de espectador.",
+		"type": "mural",
+		"location": "Estación Baquedano L5",
+		"stationId": "baquedano"
+	},
+	{
+		"id": "via-suecia",
+		"title": "Vía Suecia",
+		"artist": "Luciano Escanilla",
+		"year": 2017,
+		"description": "Diseño lúdico en el túnel de combinación que homenajea la cultura sueca y la cooperación internacional, dado el nombre de la avenida en superficie.",
+		"type": "instalacion",
+		"location": "Túnel de combinación Los Leones L1-L6",
+		"stationId": "los-leones"
+	}
+]

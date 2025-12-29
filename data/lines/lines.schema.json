@@ -1,0 +1,85 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"$id": "https://metrostory.cl/schemas/line.json",
+	"title": "MetroStory Line",
+	"description": "Una línea del Metro de Santiago",
+	"type": "array",
+	"items": {
+		"type": "object",
+		"required": ["id", "name", "color", "textColor", "inauguratedAt", "terminals", "length", "stationCount", "rodadura", "automationLevel", "status"],
+		"properties": {
+			"id": {
+				"type": "string",
+				"pattern": "^L[0-9A-Za-z-]+$",
+				"description": "Identificador único (ej: L1, L4A, L7)"
+			},
+			"name": {
+				"type": "string",
+				"description": "Nombre de la línea"
+			},
+			"color": {
+				"type": "string",
+				"pattern": "^#[0-9A-Fa-f]{6}$",
+				"description": "Color en formato hexadecimal"
+			},
+			"textColor": {
+				"type": "string",
+				"pattern": "^#[0-9A-Fa-f]{6}$",
+				"description": "Color del texto sobre el color de fondo"
+			},
+			"inauguratedAt": {
+				"type": "string",
+				"description": "Fecha de inauguración o año estimado"
+			},
+			"terminals": {
+				"type": "array",
+				"items": { "type": "string" },
+				"minItems": 2,
+				"maxItems": 2,
+				"description": "IDs de las estaciones terminales"
+			},
+			"length": {
+				"type": "number",
+				"minimum": 0,
+				"description": "Longitud en kilómetros"
+			},
+			"stationCount": {
+				"type": "integer",
+				"minimum": 1,
+				"description": "Número de estaciones"
+			},
+			"rodadura": {
+				"type": "string",
+				"enum": ["neumatica", "ferrea"],
+				"description": "Tipo de rodadura"
+			},
+			"automationLevel": {
+				"type": "string",
+				"enum": ["manual", "GoA2", "GoA4"],
+				"description": "Nivel de automatización"
+			},
+			"status": {
+				"type": "string",
+				"enum": ["operational", "construction", "planned"],
+				"description": "Estado actual"
+			},
+			"constructionMethod": {
+				"type": "string",
+				"description": "Método de construcción"
+			},
+			"description": {
+				"type": "string",
+				"description": "Descripción de la línea"
+			},
+			"historicalNote": {
+				"type": "string",
+				"description": "Nota histórica"
+			},
+			"sources": {
+				"type": "array",
+				"items": { "type": "string" },
+				"description": "IDs de fuentes"
+			}
+		}
+	}
+}

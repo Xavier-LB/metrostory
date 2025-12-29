@@ -1,0 +1,106 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"$id": "https://metrostory.cl/schemas/station.json",
+	"title": "MetroStory Station",
+	"description": "Una estación del Metro de Santiago con información histórica y geográfica",
+	"type": "array",
+	"items": {
+		"type": "object",
+		"required": ["id", "name", "coordinates", "lines", "inauguratedAt", "history", "isTransfer", "isTerminal", "isAccessible"],
+		"properties": {
+			"id": {
+				"type": "string",
+				"pattern": "^[a-z0-9-]+$",
+				"description": "Identificador único (formato slug)"
+			},
+			"name": {
+				"type": "string",
+				"minLength": 1,
+				"description": "Nombre de la estación"
+			},
+			"coordinates": {
+				"type": "array",
+				"items": { "type": "number" },
+				"minItems": 2,
+				"maxItems": 2,
+				"description": "[longitud, latitud]"
+			},
+			"lines": {
+				"type": "array",
+				"items": { "type": "string", "pattern": "^L[0-9A-Za-z]+$" },
+				"minItems": 1,
+				"description": "IDs de líneas a las que pertenece"
+			},
+			"inauguratedAt": {
+				"type": "string",
+				"pattern": "^[0-9]{4}(-[0-9]{2}(-[0-9]{2})?)?$",
+				"description": "Fecha de inauguración (YYYY, YYYY-MM, o YYYY-MM-DD)"
+			},
+			"commune": {
+				"type": "string",
+				"description": "Comuna donde se ubica"
+			},
+			"history": {
+				"type": "string",
+				"minLength": 10,
+				"description": "Historia de la estación"
+			},
+			"nameOrigin": {
+				"type": "string",
+				"description": "Origen del nombre de la estación"
+			},
+			"formerName": {
+				"type": "string",
+				"description": "Nombre anterior si fue renombrada"
+			},
+			"curiosity": {
+				"type": "string",
+				"description": "Dato curioso o anécdota"
+			},
+			"architect": {
+				"type": "string",
+				"description": "Arquitecto de la estación"
+			},
+			"dailyPassengers": {
+				"type": "integer",
+				"minimum": 0,
+				"description": "Promedio de pasajeros diarios"
+			},
+			"pictogram": {
+				"type": "string",
+				"description": "Descripción del pictograma (L3/L6)"
+			},
+			"isTransfer": {
+				"type": "boolean",
+				"description": "Es estación de combinación"
+			},
+			"isTerminal": {
+				"type": "boolean",
+				"description": "Es estación terminal"
+			},
+			"isAccessible": {
+				"type": "boolean",
+				"description": "Tiene acceso universal"
+			},
+			"isGhost": {
+				"type": "boolean",
+				"description": "Es estación fantasma"
+			},
+			"ghostInfo": {
+				"type": "object",
+				"properties": {
+					"status": { "type": "string", "enum": ["obra_terminada", "obra_gruesa", "oculta"] },
+					"reason": { "type": "string" },
+					"visibility": { "type": "string", "enum": ["visible", "oculta", "parcial"] },
+					"currentState": { "type": "string" }
+				},
+				"description": "Información de estación fantasma"
+			},
+			"sources": {
+				"type": "array",
+				"items": { "type": "string" },
+				"description": "IDs de fuentes que respaldan la información"
+			}
+		}
+	}
+}
