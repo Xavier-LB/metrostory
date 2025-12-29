@@ -2,6 +2,7 @@
 	import type { MetroLine } from '$lib/types';
 	import { sourcesById, dataDisclaimer } from '$lib/data/sources';
 	import { getStationsByLine } from '$lib/data/stations';
+	import { onMount } from 'svelte';
 
 	interface Props {
 		line: MetroLine;
@@ -12,9 +13,16 @@
 
 	const stationsOnLine = $derived(getStationsByLine(line.id));
 
+	// Scroll animation state
+	let scrollContainer: HTMLElement;
+	let timelineSection: HTMLElement;
+	let stationElements: HTMLElement[] = [];
+	let scrollProgress = $state(0);
+	let activeStationIndex = $state(0);
+	let visitedStations = $state<Set<number>>(new Set([0]));
+
 	function formatDate(dateStr: string): string {
 		if (!dateStr) return 'Fecha no disponible';
-		// Handle future years like "2027"
 		if (dateStr.length === 4) return dateStr;
 		const date = new Date(dateStr);
 		return date.toLocaleDateString('es-CL', {
@@ -44,6 +52,55 @@
 		};
 		return labels[method] || method;
 	}
+
+	function handleScroll() {
+		if (!timelineSection || !scrollContainer || stationElements.length === 0) return;
+
+		const containerRect = scrollContainer.getBoundingClientRect();
+		const sectionRect = timelineSection.getBoundingClientRect();
+
+		// Calculate how much of the timeline section is scrolled
+		const sectionTop = sectionRect.top - containerRect.top;
+		const sectionHeight = sectionRect.height;
+		const containerHeight = containerRect.height;
+
+		// Progress: 0 when section starts entering, 1 when fully scrolled past
+		const visibleStart = -sectionTop;
+		const totalScroll = sectionHeight - containerHeight * 0.5;
+		scrollProgress = Math.max(0, Math.min(1, visibleStart / totalScroll));
+
+		// Find which station is currently in view
+		const viewportCenter = containerRect.top + containerHeight * 0.4;
+
+		for (let i = stationElements.length - 1; i >= 0; i--) {
+			const el = stationElements[i];
+			if (!el) continue;
+			const rect = el.getBoundingClientRect();
+			if (rect.top <= viewportCenter) {
+				activeStationIndex = i;
+				// Mark this and all previous stations as visited
+				for (let j = 0; j <= i; j++) {
+					visitedStations.add(j);
+				}
+				visitedStations = visitedStations; // trigger reactivity
+				break;
+			}
+		}
+	}
+
+	onMount(() => {
+		if (scrollContainer) {
+			scrollContainer.addEventListener('scroll', handleScroll, { passive: true });
+			// Initial check
+			setTimeout(handleScroll, 100);
+		}
+
+		return () => {
+			if (scrollContainer) {
+				scrollContainer.removeEventListener('scroll', handleScroll);
+			}
+		};
+	});
 </script>
 
 <div class="animate-slide-in flex h-full flex-col bg-[var(--bg-secondary)]">
@@ -99,7 +156,7 @@
 	</header>
 
 	<!-- Content -->
-	<div class="flex-1 overflow-y-auto px-4 py-4 md:px-6 md:py-6">
+	<div class="flex-1 overflow-y-auto px-4 py-4 md:px-6 md:py-6" bind:this={scrollContainer}>
 		<!-- Quick facts grid -->
 		<section class="mb-8">
 			<h3
@@ -210,27 +267,161 @@
 			</section>
 		{/if}
 
-		<!-- Stations list -->
+		<!-- Stations timeline with history -->
 		{#if stationsOnLine.length > 0}
-			<section class="mb-8">
-				<h3
-					class="font-display mb-4 text-[10px] font-semibold uppercase tracking-[0.2em] text-[var(--text-tertiary)]"
-				>
-					Estaciones
-				</h3>
+			<section class="mb-8" bind:this={timelineSection}>
+				<div class="mb-4 flex items-center justify-between">
+					<h3
+						class="font-display text-[10px] font-semibold uppercase tracking-[0.2em] text-[var(--text-tertiary)]"
+					>
+						Recorrido de la línea
+					</h3>
+					<span class="rounded-full px-2 py-1 text-[10px] font-bold" style="background-color: {line.color}20; color: {line.color}">
+						{activeStationIndex + 1} / {stationsOnLine.length}
+					</span>
+				</div>
 
-				<div class="space-y-1">
-					{#each stationsOnLine as station}
-						<div class="flex items-center gap-2 rounded-lg px-3 py-2 hover:bg-[var(--bg-tertiary)]">
-							<div class="h-2 w-2 rounded-full" style="background-color: {line.color}"></div>
-							<span class="font-body text-sm text-[var(--text-secondary)]">{station.name}</span>
-							{#if station.isTransfer}
-								<span class="rounded-full bg-[var(--bg-accent)] px-1.5 py-0.5 text-[8px] font-bold uppercase text-[var(--text-tertiary)]">
-									Combinación
-								</span>
-							{/if}
-						</div>
-					{/each}
+				<div class="relative">
+					<!-- Background track (gray) -->
+					<div
+						class="absolute left-[11px] top-0 bottom-0 w-1 rounded-full bg-gray-200"
+					></div>
+
+					<!-- Progress track (colored) - fills as you scroll -->
+					<div
+						class="absolute left-[11px] top-0 w-1 rounded-full transition-all duration-300 ease-out"
+						style="background-color: {line.color}; height: {scrollProgress * 100}%"
+					></div>
+
+					<!-- Train indicator -->
+					<div
+						class="train-indicator absolute left-0 z-20 flex h-6 w-6 items-center justify-center rounded-full shadow-lg transition-all duration-300 ease-out"
+						style="background-color: {line.color}; top: calc({scrollProgress * 100}% - 12px)"
+					>
+						<svg class="h-3 w-3 text-white" fill="currentColor" viewBox="0 0 24 24">
+							<path d="M12 2C8 2 4 3.5 4 7v9.5C4 18.5 5.5 20 7.5 20L6 22v1h2l2-3h4l2 3h2v-1l-1.5-2c2 0 3.5-1.5 3.5-3.5V7c0-3.5-4-5-8-5zm-4 13c-.83 0-1.5-.67-1.5-1.5S7.17 12 8 12s1.5.67 1.5 1.5S8.83 15 8 15zm8 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm1.5-5h-11V7h11v3z"/>
+						</svg>
+					</div>
+
+					<div class="space-y-4">
+						{#each stationsOnLine as station, i}
+							<div
+								class="station-item relative pl-8 transition-all duration-300"
+								class:opacity-40={!visitedStations.has(i) && i !== activeStationIndex}
+								bind:this={stationElements[i]}
+							>
+								<!-- Station dot -->
+								<div
+									class="absolute left-0 top-1 z-10 flex h-6 w-6 items-center justify-center rounded-full border-2 transition-all duration-300"
+									class:scale-110={i === activeStationIndex}
+									style="
+										border-color: {line.color};
+										background-color: {visitedStations.has(i) ? line.color : 'white'};
+									"
+								>
+									<span
+										class="text-[8px] font-bold transition-colors duration-300"
+										style="color: {visitedStations.has(i) ? line.textColor : line.color}"
+									>
+										{i + 1}
+									</span>
+								</div>
+
+								<!-- Station card -->
+								<div
+									class="rounded-xl bg-[var(--bg-tertiary)] p-4 transition-all duration-300"
+									class:ring-2={i === activeStationIndex}
+									style="--tw-ring-color: {line.color}40"
+								>
+									<!-- Header -->
+									<div class="mb-2 flex items-start justify-between">
+										<div>
+											<h4 class="font-display text-base font-bold text-[var(--text-primary)]">
+												{station.name}
+											</h4>
+											{#if station.formerName}
+												<p class="text-[11px] italic text-[var(--text-muted)]">
+													Antes: {station.formerName}
+												</p>
+											{/if}
+										</div>
+										<div class="flex flex-wrap justify-end gap-1">
+											{#if station.isTransfer}
+												<span class="rounded-full bg-[var(--bg-accent)] px-1.5 py-0.5 text-[8px] font-bold uppercase text-[var(--text-tertiary)]">
+													Combinación
+												</span>
+											{/if}
+											{#if station.isTerminal}
+												<span class="rounded-full px-1.5 py-0.5 text-[8px] font-bold uppercase" style="background-color: {line.color}20; color: {line.color}">
+													Terminal
+												</span>
+											{/if}
+										</div>
+									</div>
+
+									<!-- Inauguration date -->
+									<p class="mb-3 text-[11px] text-[var(--text-muted)]">
+										Inaugurada el {formatDate(station.inauguratedAt)}
+										{#if station.commune}
+											• {station.commune}
+										{/if}
+									</p>
+
+									<!-- History -->
+									{#if station.history}
+										<p class="font-body text-sm leading-relaxed text-[var(--text-secondary)]">
+											{station.history}
+										</p>
+									{/if}
+
+									<!-- Name origin -->
+									{#if station.nameOrigin}
+										<div class="mt-3 rounded-lg bg-[var(--bg-accent)] p-3">
+											<p class="text-[10px] font-bold uppercase tracking-wide text-[var(--text-tertiary)]">
+												Origen del nombre
+											</p>
+											<p class="mt-1 font-body text-xs text-[var(--text-secondary)]">
+												{station.nameOrigin}
+											</p>
+										</div>
+									{/if}
+
+									<!-- Curiosity -->
+									{#if station.curiosity}
+										<div class="mt-3 rounded-lg border-l-2 bg-[var(--bg-accent)] p-3" style="border-color: {line.color}">
+											<p class="text-[10px] font-bold uppercase tracking-wide text-[var(--text-tertiary)]">
+												Dato curioso
+											</p>
+											<p class="mt-1 font-body text-xs text-[var(--text-secondary)]">
+												{station.curiosity}
+											</p>
+										</div>
+									{/if}
+
+									<!-- Artworks preview -->
+									{#if station.artworks && station.artworks.length > 0}
+										<div class="mt-3">
+											<p class="text-[10px] font-bold uppercase tracking-wide text-[var(--text-tertiary)]">
+												MetroArte ({station.artworks.length})
+											</p>
+											<div class="mt-1 flex flex-wrap gap-1">
+												{#each station.artworks.slice(0, 2) as artwork}
+													<span class="rounded-full bg-[var(--metro-l5)]/10 px-2 py-0.5 text-[10px] text-[var(--metro-l5)]">
+														{artwork.title}
+													</span>
+												{/each}
+												{#if station.artworks.length > 2}
+													<span class="rounded-full bg-[var(--bg-accent)] px-2 py-0.5 text-[10px] text-[var(--text-muted)]">
+														+{station.artworks.length - 2} más
+													</span>
+												{/if}
+											</div>
+										</div>
+									{/if}
+								</div>
+							</div>
+						{/each}
+					</div>
 				</div>
 			</section>
 		{/if}
@@ -278,3 +469,22 @@
 		</p>
 	</footer>
 </div>
+
+<style>
+	.train-indicator {
+		animation: pulse 2s ease-in-out infinite;
+	}
+
+	@keyframes pulse {
+		0%, 100% {
+			box-shadow: 0 0 0 0 var(--tw-ring-color, rgba(0,0,0,0.2));
+		}
+		50% {
+			box-shadow: 0 0 0 8px transparent;
+		}
+	}
+
+	.station-item {
+		scroll-margin-top: 100px;
+	}
+</style>
