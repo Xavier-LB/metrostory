@@ -120,6 +120,9 @@
 			});
 
 			// === CAPAS DE ESTACIONES ===
+			// Larger radii for mobile to make tapping easier
+			const isMobileDevice = isMobile();
+			const sizeMultiplier = isMobileDevice ? 1.4 : 1;
 
 			// Glow de estaciones
 			map.addLayer({
@@ -127,7 +130,7 @@
 				type: 'circle',
 				source: 'metro-stations',
 				paint: {
-					'circle-radius': ['interpolate', ['linear'], ['zoom'], 10, 8, 14, 16, 18, 24],
+					'circle-radius': ['interpolate', ['linear'], ['zoom'], 10, 8 * sizeMultiplier, 14, 16 * sizeMultiplier, 18, 24 * sizeMultiplier],
 					'circle-color': [
 						'match',
 						['get', 'linea'],
@@ -145,7 +148,7 @@
 				type: 'circle',
 				source: 'metro-stations',
 				paint: {
-					'circle-radius': ['interpolate', ['linear'], ['zoom'], 10, 5, 14, 9, 18, 14],
+					'circle-radius': ['interpolate', ['linear'], ['zoom'], 10, 5 * sizeMultiplier, 14, 9 * sizeMultiplier, 18, 14 * sizeMultiplier],
 					'circle-color': [
 						'match',
 						['get', 'linea'],
@@ -162,11 +165,25 @@
 				type: 'circle',
 				source: 'metro-stations',
 				paint: {
-					'circle-radius': ['interpolate', ['linear'], ['zoom'], 10, 3, 14, 6, 18, 10],
+					'circle-radius': ['interpolate', ['linear'], ['zoom'], 10, 3 * sizeMultiplier, 14, 6 * sizeMultiplier, 18, 10 * sizeMultiplier],
 					'circle-color': '#ffffff',
 					'circle-opacity': 1
 				}
 			});
+
+			// Invisible hit area layer for easier tapping on mobile
+			if (isMobileDevice) {
+				map.addLayer({
+					id: 'metro-stations-hitarea',
+					type: 'circle',
+					source: 'metro-stations',
+					paint: {
+						'circle-radius': ['interpolate', ['linear'], ['zoom'], 10, 15, 14, 25, 18, 35],
+						'circle-color': 'transparent',
+						'circle-opacity': 0
+					}
+				});
+			}
 
 			// Capa de etiquetas mejorada - dark text for light theme
 			map.addLayer({
@@ -191,7 +208,7 @@
 			});
 
 			// Interactividad - buscar por nombre
-			map.on('click', 'metro-stations-layer', (e) => {
+			const handleStationClick = (e: mapboxgl.MapMouseEvent & { features?: mapboxgl.MapboxGeoJSONFeature[] }) => {
 				if (!e.features?.[0]) return;
 				const props = e.features[0].properties;
 				if (!props?.nombre) return;
@@ -223,7 +240,15 @@
 					};
 					onStationSelect(tempStation);
 				}
-			});
+			};
+
+			// Click handler on visible station layer
+			map.on('click', 'metro-stations-layer', handleStationClick);
+
+			// Also add click handler to hitarea layer on mobile for easier tapping
+			if (isMobileDevice) {
+				map.on('click', 'metro-stations-hitarea', handleStationClick);
+			}
 
 			map.on('mouseenter', 'metro-stations-layer', () => {
 				if (map) map.getCanvas().style.cursor = 'pointer';

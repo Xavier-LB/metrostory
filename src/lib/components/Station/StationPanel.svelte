@@ -2,14 +2,75 @@
 	import type { Station, MetroLine } from '$lib/types';
 	import LineBadge from '$lib/components/UI/LineBadge.svelte';
 	import { sourcesById, dataDisclaimer } from '$lib/data/sources';
+	import { getStationsByLine } from '$lib/data/stations';
 
 	interface Props {
 		station: Station;
 		linesById: Record<string, MetroLine>;
 		onClose: () => void;
+		allStations?: Station[];
+		onStationChange?: (station: Station) => void;
 	}
 
-	let { station, linesById, onClose }: Props = $props();
+	let { station, linesById, onClose, allStations = [], onStationChange }: Props = $props();
+
+	// Current line for navigation (can be changed if station is transfer)
+	let currentLineId = $state('');
+
+	// Set initial line and reset when station changes
+	$effect(() => {
+		// If currentLineId is empty or station doesn't have the current line, use first line
+		if (!currentLineId || !station.lines.includes(currentLineId)) {
+			currentLineId = station.lines[0];
+		}
+	});
+
+	// Get stations on the current line in order
+	const stationsOnLine = $derived(getStationsByLine(currentLineId));
+	const currentIndex = $derived(stationsOnLine.findIndex(s => s.id === station.id));
+	const prevStation = $derived(currentIndex > 0 ? stationsOnLine[currentIndex - 1] : null);
+	const nextStation = $derived(currentIndex < stationsOnLine.length - 1 ? stationsOnLine[currentIndex + 1] : null);
+	const currentLine = $derived(linesById[currentLineId]);
+
+	// Swipe handling
+	let touchStartX = $state(0);
+	let touchStartY = $state(0);
+	let touchEndX = $state(0);
+	let isSwiping = $state(false);
+
+	function handleTouchStart(e: TouchEvent) {
+		touchStartX = e.touches[0].clientX;
+		touchStartY = e.touches[0].clientY;
+		isSwiping = false;
+	}
+
+	function handleTouchMove(e: TouchEvent) {
+		touchEndX = e.touches[0].clientX;
+		const deltaX = touchEndX - touchStartX;
+		const deltaY = e.touches[0].clientY - touchStartY;
+
+		// Only consider horizontal swipes (deltaX > deltaY)
+		if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > 30) {
+			isSwiping = true;
+		}
+	}
+
+	function handleTouchEnd() {
+		if (!isSwiping) return;
+
+		const deltaX = touchEndX - touchStartX;
+		const minSwipeDistance = 80;
+
+		if (deltaX > minSwipeDistance && prevStation && onStationChange) {
+			// Swipe right -> go to previous station
+			onStationChange(prevStation);
+		} else if (deltaX < -minSwipeDistance && nextStation && onStationChange) {
+			// Swipe left -> go to next station
+			onStationChange(nextStation);
+		}
+
+		isSwiping = false;
+	}
 
 	function formatDate(dateStr: string): string {
 		if (!dateStr) return 'Fecha no disponible';
@@ -33,7 +94,12 @@
 	}
 </script>
 
-<div class="animate-slide-in flex h-full flex-col bg-[var(--bg-secondary)]">
+<div
+	class="animate-slide-in flex h-full flex-col bg-[var(--bg-secondary)]"
+	ontouchstart={handleTouchStart}
+	ontouchmove={handleTouchMove}
+	ontouchend={handleTouchEnd}
+>
 	<!-- Header with accent line -->
 	<header class="relative border-b border-[var(--border-light)] px-4 pb-4 pt-6 md:px-6 md:pb-6 md:pt-8">
 		<!-- Colored accent bar -->
@@ -89,6 +155,72 @@
 				</svg>
 			</button>
 		</div>
+
+		<!-- Swipe navigation hint and arrows -->
+		{#if stationsOnLine.length > 1 && onStationChange}
+			<div class="mt-4 space-y-2">
+				<!-- Line selector for transfer stations -->
+				{#if station.lines.length > 1}
+					<div class="flex items-center justify-center gap-1">
+						<span class="font-ui text-[9px] text-[var(--text-muted)]">Navegar por:</span>
+						{#each station.lines as lineId}
+							{@const line = linesById[lineId]}
+							{#if line}
+								<button
+									onclick={() => { currentLineId = lineId; }}
+									class="flex h-5 w-5 items-center justify-center rounded-full text-[8px] font-bold transition-all {currentLineId === lineId ? 'ring-2 ring-offset-1' : 'opacity-50 hover:opacity-100'}"
+									style="background-color: {line.color}; color: {line.textColor}; {currentLineId === lineId ? `ring-color: ${line.color}` : ''}"
+								>
+									{lineId.replace('L', '')}
+								</button>
+							{/if}
+						{/each}
+					</div>
+				{/if}
+
+				<!-- Navigation arrows -->
+				<div class="flex items-center justify-between">
+					<!-- Previous station button -->
+					<button
+						onclick={() => prevStation && onStationChange?.(prevStation)}
+						disabled={!prevStation}
+						class="flex items-center gap-1 rounded-lg px-2 py-1 text-[var(--text-tertiary)] transition-all hover:bg-[var(--bg-tertiary)] hover:text-[var(--text-primary)] disabled:opacity-30 disabled:hover:bg-transparent"
+					>
+						<svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+							<path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+						</svg>
+						<span class="max-w-[80px] truncate font-ui text-[10px]">{prevStation?.name ?? ''}</span>
+					</button>
+
+					<!-- Station counter with line indicator -->
+					<div class="flex items-center gap-1.5">
+						{#if currentLine}
+							<div
+								class="flex h-4 w-4 items-center justify-center rounded-full text-[7px] font-bold"
+								style="background-color: {currentLine.color}; color: {currentLine.textColor}"
+							>
+								{currentLineId.replace('L', '')}
+							</div>
+						{/if}
+						<span class="font-ui text-[10px] text-[var(--text-muted)]">
+							{currentIndex + 1} / {stationsOnLine.length}
+						</span>
+					</div>
+
+					<!-- Next station button -->
+					<button
+						onclick={() => nextStation && onStationChange?.(nextStation)}
+						disabled={!nextStation}
+						class="flex items-center gap-1 rounded-lg px-2 py-1 text-[var(--text-tertiary)] transition-all hover:bg-[var(--bg-tertiary)] hover:text-[var(--text-primary)] disabled:opacity-30 disabled:hover:bg-transparent"
+					>
+						<span class="max-w-[80px] truncate font-ui text-[10px]">{nextStation?.name ?? ''}</span>
+						<svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+							<path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+						</svg>
+					</button>
+				</div>
+			</div>
+		{/if}
 	</header>
 
 	<!-- Content -->

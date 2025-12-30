@@ -11,6 +11,13 @@
 		],
 		"length": 20.4,
 		"stationCount": 27,
+		"stationOrder": [
+			"san-pablo", "neptuno", "pajaritos", "las-rejas", "ecuador", "san-alberto-hurtado",
+			"universidad-de-santiago", "estacion-central", "union-latinoamericana", "republica",
+			"los-heroes", "la-moneda", "universidad-de-chile", "santa-lucia", "universidad-catolica",
+			"baquedano", "salvador", "manuel-montt", "pedro-de-valdivia", "los-leones", "tobalaba",
+			"el-golf", "alcantara", "escuela-militar", "manquehue", "hernando-de-magallanes", "los-dominicos"
+		],
 		"rodadura": "neumatica",
 		"automationLevel": "manual",
 		"status": "operational",
@@ -35,6 +42,13 @@
 		],
 		"length": 25.9,
 		"stationCount": 26,
+		"stationOrder": [
+			"vespucio-norte", "zapadores", "dorsal", "einstein", "cementerios", "cerro-blanco",
+			"patronato", "cal-y-canto", "santa-ana", "los-heroes", "toesca", "parque-ohiggins",
+			"rondizzoni", "franklin", "el-llano", "san-miguel", "lo-vial", "departamental",
+			"ciudad-del-nino", "lo-ovalle", "el-parron", "la-cisterna", "el-bosque", "observatorio",
+			"copa-lo-martinez", "hospital-el-pino"
+		],
 		"rodadura": "neumatica",
 		"automationLevel": "manual",
 		"status": "operational",
@@ -58,6 +72,12 @@
 		],
 		"length": 25,
 		"stationCount": 21,
+		"stationOrder": [
+			"plaza-quilicura", "lo-cruzat", "ferrocarril", "los-libertadores", "cardenal-caro",
+			"vivaceta", "conchali", "plaza-chacabuco", "hospitales", "cal-y-canto", "plaza-de-armas",
+			"universidad-de-chile", "parque-almagro", "matta", "irarrazaval", "monsenor-eyzaguirre",
+			"nunoa", "chile-espana", "villa-frei", "plaza-egana", "fernando-castillo-velasco"
+		],
 		"rodadura": "ferrea",
 		"automationLevel": "GoA4",
 		"status": "operational",
@@ -81,6 +101,13 @@
 		],
 		"length": 24.7,
 		"stationCount": 23,
+		"stationOrder": [
+			"tobalaba", "cristobal-colon", "francisco-bilbao", "principe-de-gales", "simon-bolivar",
+			"los-orientales", "grecia", "los-presidentes", "quilin", "las-torres", "macul",
+			"vicuna-mackenna", "rojas-magallanes", "trinidad", "san-jose-de-la-estrella",
+			"los-quillayes", "elisa-correa", "hospital-sotero-del-rio", "protectora-de-la-infancia",
+			"las-mercedes", "plaza-de-puente-alto"
+		],
 		"rodadura": "ferrea",
 		"automationLevel": "manual",
 		"status": "operational",
@@ -104,6 +131,9 @@
 		],
 		"length": 7.7,
 		"stationCount": 6,
+		"stationOrder": [
+			"la-cisterna", "san-ramon", "santa-rosa", "la-granja", "santa-julia", "echeverria", "vicuna-mackenna"
+		],
 		"rodadura": "ferrea",
 		"automationLevel": "manual",
 		"status": "operational",
@@ -127,6 +157,14 @@
 		],
 		"length": 30,
 		"stationCount": 30,
+		"stationOrder": [
+			"plaza-de-maipu", "santiago-bueras", "del-sol", "monte-tabor", "las-parcelas", "laguna-sur",
+			"barrancas", "pudahuel", "san-pablo", "lo-prado", "blanqueado", "gruta-de-lourdes",
+			"quinta-normal", "cumming", "libertad", "bellas-artes", "santa-ana", "plaza-de-armas",
+			"baquedano", "parque-bustamante", "santa-isabel", "irarrazaval", "nuble", "rodrigo-de-araya",
+			"carlos-valdovinos", "camino-agricola", "san-joaquin", "pedrero", "mirador",
+			"bellavista-de-la-florida", "vicente-valdes"
+		],
 		"rodadura": "neumatica",
 		"automationLevel": "manual",
 		"status": "operational",
@@ -150,6 +188,10 @@
 		],
 		"length": 15,
 		"stationCount": 10,
+		"stationOrder": [
+			"cerrillos", "lo-valledor", "presidente-pedro-aguirre-cerda", "franklin", "bio-bio",
+			"nuble", "estadio-nacional", "nunoa", "ines-de-suarez", "los-leones"
+		],
 		"rodadura": "ferrea",
 		"automationLevel": "GoA4",
 		"status": "operational",

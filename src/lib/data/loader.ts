@@ -32,6 +32,16 @@ export function getStation(id: string): Station | undefined {
 }
 
 export function getStationsByLine(lineId: string): Station[] {
+	const line = allLinesById[lineId];
+
+	// If line has stationOrder, use it to return stations in correct order
+	if (line?.stationOrder) {
+		return line.stationOrder
+			.map((stationId) => stationsById[stationId])
+			.filter((s): s is Station => s !== undefined);
+	}
+
+	// Fallback: return stations in order they appear in data
 	return stations.filter((s) => s.lines.includes(lineId));
 }
 

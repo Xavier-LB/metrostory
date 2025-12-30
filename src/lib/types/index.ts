@@ -11,6 +11,7 @@ export interface MetroLine {
 	terminals: [string, string];
 	length: number;
 	stationCount: number;
+	stationOrder?: string[]; // IDs de estaciones en orden geográfico
 	// Campos adicionales de la investigación
 	rodadura: Rodadura;
 	automationLevel: AutomationLevel;

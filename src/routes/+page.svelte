@@ -181,13 +181,13 @@
 			</div>
 		</div>
 
-		<!-- Mobile Line Legend - Compact row -->
+		<!-- Mobile Line Legend - Scrollable row -->
 		<div
 			class="glass animate-slide-up absolute bottom-4 left-4 right-4 z-20 flex items-center gap-2 rounded-xl border border-[var(--border-light)] p-3 shadow-[var(--shadow-lg)] md:hidden"
 			style="animation-delay: 100ms"
 		>
-			<!-- Lines -->
-			<div class="flex flex-1 items-center justify-center gap-2">
+			<!-- Lines - Horizontal scrollable -->
+			<div class="flex flex-1 items-center gap-2 overflow-x-auto scrollbar-hide">
 				{#each lines as line (line.id)}
 					<button
 						onclick={() => handleLineSelect(line)}
@@ -369,19 +369,6 @@
 			</div>
 		</aside>
 
-		<!-- Instructions hint - Hidden on mobile -->
-		<div class="animate-fade-in absolute right-8 top-8 z-20 hidden md:block" style="animation-delay: 400ms">
-			<div
-				class="glass flex items-center gap-3 rounded-xl border border-[var(--border-light)] px-4 py-2.5 shadow-[var(--shadow-md)]"
-			>
-				<div class="flex h-5 w-5 items-center justify-center rounded-full bg-[var(--metro-l1)]/10">
-					<div class="h-2 w-2 rounded-full bg-[var(--metro-l1)]"></div>
-				</div>
-				<span class="font-display text-[11px] font-medium uppercase tracking-wide text-[var(--text-secondary)]">
-					Selecciona una estación
-				</span>
-			</div>
-		</div>
 
 		<!-- Station Panel Overlay -->
 		<aside
@@ -390,7 +377,13 @@
 				: 'translate-x-full'}"
 		>
 			{#if selectedStation}
-				<StationPanel station={selectedStation} {linesById} onClose={handleClose} />
+				<StationPanel
+					station={selectedStation}
+					{linesById}
+					onClose={handleClose}
+					allStations={stations}
+					onStationChange={(s) => { selectedStation = s; }}
+				/>
 			{/if}
 		</aside>
 

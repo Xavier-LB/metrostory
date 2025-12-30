@@ -2781,5 +2781,65 @@
 			"wikipedia-l6",
 			"gemini-origen"
 		]
+	},
+	{
+		"id": "libertad",
+		"name": "Libertad",
+		"coordinates": [
+			-70.6830,
+			-33.4400
+		],
+		"lines": [
+			"L5"
+		],
+		"inauguratedAt": "",
+		"commune": "Santiago",
+		"history": "Estación fantasma ubicada en el Barrio Yungay. Cuenta con andenes, mesaninas y accesos completamente construidos pero nunca abiertos al público. Fue diseñada durante la construcción original de la Línea 5 en los años 90, pero su apertura fue postergada indefinidamente debido a la baja demanda proyectada en la zona.",
+		"nameOrigin": "El nombre hace referencia a la calle Libertad y al concepto de libertad como valor republicano fundamental de Chile.",
+		"curiosity": "Es la estación fantasma más completa del sistema, con toda su infraestructura terminada. Los trenes pasan sin detenerse y los pasajeros pueden ver brevemente sus andenes vacíos.",
+		"isTransfer": false,
+		"isTerminal": false,
+		"isAccessible": false,
+		"isGhost": true,
+		"ghostInfo": {
+			"status": "obra_terminada",
+			"reason": "Baja demanda proyectada y priorización de recursos en otras extensiones",
+			"visibility": "parcial",
+			"currentState": "Infraestructura completa pero cerrada. Andenes, mesaninas y accesos construidos pero sin uso. Visible brevemente desde los trenes en operación."
+		},
+		"sources": [
+			"la-tercera-libertad",
+			"wikipedia-l5"
+		]
+	},
+	{
+		"id": "echeverria",
+		"name": "Echeverría",
+		"coordinates": [
+			-70.5985,
+			-33.5230
+		],
+		"lines": [
+			"L4A"
+		],
+		"inauguratedAt": "",
+		"commune": "La Florida",
+		"history": "La estación fantasma más visible del sistema Metro de Santiago. Construida en obra gruesa durante la construcción de la Línea 4A, sus andenes y estructura son claramente observables tanto desde los trenes como desde la Autopista Vespucio Sur que corre paralela.",
+		"nameOrigin": "Nombrada por la calle Echeverría, en honor a algún personaje histórico o propietario de terrenos de la zona.",
+		"curiosity": "A diferencia de otras estaciones fantasma, Echeverría es perfectamente visible para miles de personas diariamente. Los conductores de la autopista y los pasajeros del metro pueden ver sus andenes sin terminar, lo que la convierte en una curiosidad urbana muy conocida.",
+		"isTransfer": false,
+		"isTerminal": false,
+		"isAccessible": false,
+		"isGhost": true,
+		"ghostInfo": {
+			"status": "obra_gruesa",
+			"reason": "Falta de financiamiento para completar las terminaciones y equipamiento",
+			"visibility": "visible",
+			"currentState": "Obra gruesa visible desde trenes y Autopista Vespucio Sur. Andenes en hormigón sin terminaciones ni equipamiento."
+		},
+		"sources": [
+			"la-cuarta-fantasmas",
+			"wikipedia-l4"
+		]
 	}
 ]
