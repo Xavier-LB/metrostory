@@ -2104,12 +2104,11 @@
 		],
 		"lines": [
 			"L4",
-			"L4A",
 			"L5"
 		],
-		"inauguratedAt": "2006-08-16",
+		"inauguratedAt": "2005-11-30",
 		"commune": "La Florida",
-		"history": "Nodo triple de combinación entre L4, L4A y L5. Una de las estaciones más complejas del sistema.",
+		"history": "Combinación entre L4 y L5. Importante nodo de transporte del sur oriente de Santiago.",
 		"nameOrigin": "Vicente Valdés fue un importante agricultor y propietario de tierras en la zona de La Florida a finales del siglo XIX. La estación se ubica en los terrenos que fueron parte de su fundo.",
 		"dailyPassengers": 65000,
 		"isTransfer": true,

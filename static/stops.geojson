@@ -2253,7 +2253,7 @@
       "properties": {
         "FID": 110,
         "nombre": "LOS LEONES",
-        "linea": "LINEA 1",
+        "linea": "LINEA 6",
         "combinacion": true,
         "estacion": "EXISTENTE",
         "tipo": "ESTACION METRO",
