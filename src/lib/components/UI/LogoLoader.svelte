@@ -104,8 +104,8 @@
 
 	/* Hide elements initially, only animate when mounted */
 	.metro-line {
-		stroke-dasharray: 2500;
-		stroke-dashoffset: 2500;
+		stroke-dasharray: 5000;
+		stroke-dashoffset: 5000;
 	}
 
 	.fade-element {
@@ -129,7 +129,7 @@
 
 	@keyframes draw-line {
 		from {
-			stroke-dashoffset: 2500;
+			stroke-dashoffset: 5000;
 		}
 		to {
 			stroke-dashoffset: 0;
