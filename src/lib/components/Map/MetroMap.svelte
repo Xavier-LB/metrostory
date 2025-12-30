@@ -80,24 +80,6 @@
 
 			// === CAPAS DE LÍNEAS ===
 
-			// Glow exterior de las líneas (efecto neón)
-			map.addLayer({
-				id: 'metro-lines-glow',
-				type: 'line',
-				source: 'metro-lines',
-				paint: {
-					'line-color': [
-						'match',
-						['get', 'linea'],
-						...lineColors.flat(),
-						'#888888'
-					],
-					'line-width': ['interpolate', ['linear'], ['zoom'], 10, 12, 14, 20],
-					'line-opacity': 0.15,
-					'line-blur': 8
-				}
-			});
-
 			// Línea principal
 			map.addLayer({
 				id: 'metro-lines-layer',
@@ -124,36 +106,28 @@
 			const isMobileDevice = isMobile();
 			const sizeMultiplier = isMobileDevice ? 1.4 : 1;
 
-			// Glow de estaciones
-			map.addLayer({
-				id: 'metro-stations-glow',
-				type: 'circle',
-				source: 'metro-stations',
-				paint: {
-					'circle-radius': ['interpolate', ['linear'], ['zoom'], 10, 8 * sizeMultiplier, 14, 16 * sizeMultiplier, 18, 24 * sizeMultiplier],
-					'circle-color': [
-						'match',
-						['get', 'linea'],
-						...lineColors.flat(),
-						'#888888'
-					],
-					'circle-opacity': 0.2,
-					'circle-blur': 1
-				}
-			});
-
 			// Círculo exterior de estación
 			map.addLayer({
 				id: 'metro-stations-outer',
 				type: 'circle',
 				source: 'metro-stations',
 				paint: {
-					'circle-radius': ['interpolate', ['linear'], ['zoom'], 10, 5 * sizeMultiplier, 14, 9 * sizeMultiplier, 18, 14 * sizeMultiplier],
+					'circle-radius': [
+						'interpolate', ['linear'], ['zoom'],
+						10, ['case', ['get', 'combinacion'], 6 * sizeMultiplier, 5 * sizeMultiplier],
+						14, ['case', ['get', 'combinacion'], 10 * sizeMultiplier, 9 * sizeMultiplier],
+						18, ['case', ['get', 'combinacion'], 16 * sizeMultiplier, 14 * sizeMultiplier]
+					],
 					'circle-color': [
-						'match',
-						['get', 'linea'],
-						...lineColors.flat(),
-						'#888888'
+						'case',
+						['get', 'combinacion'],
+						'#1a1a1a',
+						[
+							'match',
+							['get', 'linea'],
+							...lineColors.flat(),
+							'#888888'
+						]
 					],
 					'circle-opacity': 1
 				}
@@ -165,7 +139,12 @@
 				type: 'circle',
 				source: 'metro-stations',
 				paint: {
-					'circle-radius': ['interpolate', ['linear'], ['zoom'], 10, 3 * sizeMultiplier, 14, 6 * sizeMultiplier, 18, 10 * sizeMultiplier],
+					'circle-radius': [
+						'interpolate', ['linear'], ['zoom'],
+						10, ['case', ['get', 'combinacion'], 3.5 * sizeMultiplier, 3 * sizeMultiplier],
+						14, ['case', ['get', 'combinacion'], 7 * sizeMultiplier, 6 * sizeMultiplier],
+						18, ['case', ['get', 'combinacion'], 11 * sizeMultiplier, 10 * sizeMultiplier]
+					],
 					'circle-color': '#ffffff',
 					'circle-opacity': 1
 				}
