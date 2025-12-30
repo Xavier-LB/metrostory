@@ -134,9 +134,50 @@ for (const feature of data.features) {
 	}
 }
 
-// Convertir el mapa de líneas a array
+// Correcciones manuales para líneas con coordenadas imprecisas
+const lineCorrections = {
+	'LINEA 3': [
+		// Plaza de Armas: mover punto cercano a la estación
+		{ from: [-70.6526867, -33.4374529], to: [-70.6512777, -33.4374154] },
+		// Universidad de Chile: mover puntos cercanos a la estación
+		{ from: [-70.6521816, -33.4409522], to: [-70.6510, -33.4409522] },
+		{ from: [-70.6517706, -33.4439597], to: [-70.6506654, -33.443867] },
+		{ from: [-70.6517488, -33.4441232], to: [-70.6506, -33.4441232] }
+	]
+};
+
+// Aplicar correcciones a las líneas
+function applyLineCorrections(lineFeature) {
+	const lineName = lineFeature.properties.linea;
+	const corrections = lineCorrections[lineName];
+	if (!corrections) return lineFeature;
+
+	const newCoords = lineFeature.geometry.coordinates.map(coord => {
+		for (const correction of corrections) {
+			// Si el punto está muy cerca del punto a corregir, reemplazarlo
+			const dx = Math.abs(coord[0] - correction.from[0]);
+			const dy = Math.abs(coord[1] - correction.from[1]);
+			if (dx < 0.0001 && dy < 0.0001) {
+				console.log(`  Corrigiendo punto de ${lineName}: [${coord}] -> [${correction.to}]`);
+				return correction.to;
+			}
+		}
+		return coord;
+	});
+
+	return {
+		...lineFeature,
+		geometry: {
+			...lineFeature.geometry,
+			coordinates: newCoords
+		}
+	};
+}
+
+// Convertir el mapa de líneas a array y aplicar correcciones
 for (const [lineName, lineFeature] of linesByRef) {
-	lineFeatures.push(lineFeature);
+	const correctedFeature = applyLineCorrections(lineFeature);
+	lineFeatures.push(correctedFeature);
 }
 
 // Para cada estación, encontrar la línea más cercana

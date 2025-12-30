@@ -2417,7 +2417,7 @@
       "properties": {
         "FID": 118,
         "nombre": "PLAZA DE ARMAS",
-        "linea": "LINEA 5",
+        "linea": "LINEA 3",
         "combinacion": true,
         "estacion": "EXISTENTE",
         "tipo": "ESTACION METRO",
@@ -2459,7 +2459,7 @@
       "properties": {
         "FID": 120,
         "nombre": "UNIVERSIDAD DE CHILE",
-        "linea": "LINEA 1",
+        "linea": "LINEA 3",
         "combinacion": true,
         "estacion": "EXISTENTE",
         "tipo": "ESTACION METRO",
