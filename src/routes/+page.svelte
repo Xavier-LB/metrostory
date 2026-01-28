@@ -179,6 +179,19 @@
 					</svg>
 				</button>
 			</div>
+
+			<!-- 50 años: Historia del Logo -->
+			<a
+				href="/logo"
+				class="mt-2 flex items-center gap-2 rounded-md bg-[var(--metro-l1)] px-3 py-2 transition-all hover:bg-[var(--metro-l1)]/90"
+			>
+				<div class="flex gap-0.5">
+					<div class="h-2.5 w-2.5 rotate-45 bg-white/90"></div>
+					<div class="h-2.5 w-2.5 rotate-45 bg-white/90"></div>
+					<div class="h-2.5 w-2.5 rotate-45 bg-white/90"></div>
+				</div>
+				<span class="font-display text-[9px] font-bold uppercase tracking-wide text-white">50 años del Logo</span>
+			</a>
 		</div>
 
 		<!-- Mobile Line Legend - Scrollable row -->
@@ -202,12 +215,27 @@
 			</div>
 			<!-- Divider -->
 			<div class="h-6 w-px flex-shrink-0 bg-[var(--border-light)]"></div>
+			<!-- 50 años logo link -->
+			<a
+				href="/logo"
+				class="flex h-8 flex-shrink-0 items-center justify-center gap-1.5 rounded-full bg-[var(--metro-l1)] px-3 shadow-sm transition-transform duration-200 active:scale-95"
+			>
+				<div class="flex gap-px">
+					<div class="h-2 w-2 rotate-45 bg-white/90"></div>
+					<div class="h-2 w-2 rotate-45 bg-white/90"></div>
+					<div class="h-2 w-2 rotate-45 bg-white/90"></div>
+				</div>
+				<span class="font-display text-[8px] font-bold uppercase tracking-wide text-white">50</span>
+			</a>
 			<!-- Explore more button -->
 			<button
 				onclick={toggleInfoPanel}
-				class="flex h-8 flex-shrink-0 items-center justify-center rounded-full bg-[var(--metro-l1)] px-3 shadow-sm transition-transform duration-200 active:scale-95"
+				class="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-[var(--bg-tertiary)] shadow-sm transition-transform duration-200 active:scale-95"
+				aria-label="Ver más información"
 			>
-				<span class="font-display text-[9px] font-bold uppercase tracking-wide text-white">Más</span>
+				<svg class="h-4 w-4 text-[var(--text-secondary)]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+					<path stroke-linecap="round" stroke-linejoin="round" d="M12 6.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 12.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 18.75a.75.75 0 110-1.5.75.75 0 010 1.5z" />
+				</svg>
 			</button>
 		</div>
 
