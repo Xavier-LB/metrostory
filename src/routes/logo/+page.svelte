@@ -18,6 +18,39 @@
 		name="description"
 		content="Los icónicos tres rombos rojos del Metro de Santiago fueron diseñados por Peter Himmel y Jaime Escudero a fines de los años 60. Conoce su historia y significado."
 	/>
+
+	<!-- Open Graph / Facebook / WhatsApp -->
+	<meta property="og:type" content="article" />
+	<meta property="og:title" content="Los Tres Rombos: Historia del Logo del Metro de Santiago" />
+	<meta
+		property="og:description"
+		content="Descubre la fascinante historia detrás de los icónicos tres rombos rojos que llevan más de 55 años representando al Metro de Santiago."
+	/>
+	<meta property="og:image" content="https://metrostory.cl/images/logo/metro-logo-preview.jpg" />
+	<meta property="og:image:width" content="1200" />
+	<meta property="og:image:height" content="630" />
+	<meta property="og:url" content="https://metrostory.cl/logo" />
+	<meta property="og:site_name" content="MetroStory" />
+	<meta property="og:locale" content="es_CL" />
+
+	<!-- Twitter Card -->
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:title" content="Los Tres Rombos: Historia del Logo del Metro de Santiago" />
+	<meta
+		name="twitter:description"
+		content="Descubre la fascinante historia detrás de los icónicos tres rombos rojos que llevan más de 55 años representando al Metro de Santiago."
+	/>
+	<meta name="twitter:image" content="https://metrostory.cl/images/logo/metro-logo-preview.jpg" />
+
+	<!-- Additional metadata -->
+	<meta property="article:published_time" content="2026-01-28" />
+	<meta property="article:author" content="MetroStory" />
+	<meta property="article:section" content="Historia" />
+	<meta property="article:tag" content="Metro de Santiago" />
+	<meta property="article:tag" content="Logo" />
+	<meta property="article:tag" content="Diseño gráfico" />
+	<meta property="article:tag" content="Historia de Chile" />
+
 	<style>
 		@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap');
 	</style>
@@ -1246,6 +1279,8 @@
 	}
 
 	.anniversary-logo img {
+		display: block;
+		margin: 0 auto;
 		max-width: 200px;
 		height: auto;
 	}
@@ -1436,6 +1471,8 @@
 	}
 
 	.book-cover img {
+		display: block;
+		margin: 0 auto;
 		max-width: 280px;
 		width: 100%;
 		height: auto;
