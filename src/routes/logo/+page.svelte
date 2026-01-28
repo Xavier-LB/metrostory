@@ -26,9 +26,8 @@
 		property="og:description"
 		content="Descubre la fascinante historia detrás de los icónicos tres rombos rojos que llevan más de 55 años representando al Metro de Santiago."
 	/>
-	<meta property="og:image" content="https://metrostory.cl/images/logo/metro-logo-preview.jpg" />
-	<meta property="og:image:width" content="1200" />
-	<meta property="og:image:height" content="630" />
+	<meta property="og:image" content="https://metrostory.cl/logo.png" />
+	<meta property="og:image:alt" content="MetroStory - Historia del Metro de Santiago" />
 	<meta property="og:url" content="https://metrostory.cl/logo" />
 	<meta property="og:site_name" content="MetroStory" />
 	<meta property="og:locale" content="es_CL" />
@@ -40,7 +39,8 @@
 		name="twitter:description"
 		content="Descubre la fascinante historia detrás de los icónicos tres rombos rojos que llevan más de 55 años representando al Metro de Santiago."
 	/>
-	<meta name="twitter:image" content="https://metrostory.cl/images/logo/metro-logo-preview.jpg" />
+	<meta name="twitter:image" content="https://metrostory.cl/logo.png" />
+	<meta name="twitter:image:alt" content="MetroStory - Historia del Metro de Santiago" />
 
 	<!-- Additional metadata -->
 	<meta property="article:published_time" content="2026-01-28" />
